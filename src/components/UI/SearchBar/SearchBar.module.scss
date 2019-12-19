@@ -1,0 +1,49 @@
+@import "../../../variables";
+
+.SearchBar {
+    height: 5rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.SearchInput {
+    all: unset;
+    box-sizing: inherit;
+    background-color: $color-white;
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    flex: 1 auto;
+    transition: all 0.2s ease-out;
+
+    &::placeholder {
+        color: rgba($color-gray-dark, 0.75);
+    }
+}
+
+.SearchButton {
+    all: unset;
+    box-sizing: inherit;
+    height: 100%;
+    width: 5rem;
+    background-color: $color-complement;
+    border-radius: 3px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+
+    &:hover {
+        background-color: $color-complement-light-2;
+    }
+}
+
+.SearchIcon {
+    display: block;
+    height: 2.5rem;
+    width: 2.5rem;
+    margin: 0 auto;
+    fill: $color-gray-dark;
+}

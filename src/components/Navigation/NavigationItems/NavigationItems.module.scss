@@ -1,0 +1,11 @@
+.NavigationItems {
+    display: flex;
+    list-style: none;
+    padding: 1.5rem 2.5rem;
+
+    * {
+        &:not(:last-child) {
+            margin-right: 1.5rem;
+        }
+    }
+}

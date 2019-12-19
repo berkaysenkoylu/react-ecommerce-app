@@ -1,0 +1,68 @@
+@import '../../../variables';
+
+.MenuToggle {
+    display: inline-block;
+    text-align: center;
+    height: 5rem;
+    width: 5rem;
+    transition: all 0.4s;
+    cursor: pointer;
+
+    &__Icon {
+        position: relative;
+        margin-top: 2.4rem;
+        backface-visibility: hidden;
+
+        &,
+        &::before,
+        &::after {
+            width: 3rem;
+            height: 3px;
+            background-color: $color-white;
+            display: inline-block;
+            transition: all 0.4s;
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            transition: all 0.2s;
+        }
+
+        &::before {
+            top: -1rem;
+        }
+
+        &::after {
+            top: 1rem;
+        }
+    }
+
+    &:hover &__Icon::after {
+        top: 1.2rem;
+    }
+
+    &:hover &__Icon::before {
+        top: -1.2rem;
+    }
+}
+
+.CheckBox {
+    display: none;
+
+    &:checked ~ .MenuToggle .MenuToggle__Icon {
+        background-color: transparent;
+    }
+
+    &:checked ~ .MenuToggle .MenuToggle__Icon::before {
+        top: 0;
+        transform: rotateZ(135deg);
+    }
+
+    &:checked ~ .MenuToggle .MenuToggle__Icon::after {
+        top: 0;
+        transform: rotateZ(-135deg);
+    }
+}

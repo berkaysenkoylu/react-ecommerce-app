@@ -1,0 +1,14 @@
+@import "../../../variables";
+
+.RightArrow {
+    position: absolute;
+    top: 50%;
+    right: 2.5rem;
+    cursor: pointer;
+}
+
+.ArrowIcon {
+    width: 3.5rem;
+    height: 3.5rem;
+    fill: $color-white;
+}

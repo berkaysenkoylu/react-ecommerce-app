@@ -1,0 +1,64 @@
+@import "../../../variables";
+
+.Toolbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    backface-visibility: hidden;
+    background-color: $color-tertiary;
+    font-size: $default-font-size;
+    z-index: 1000;
+
+    & > * {
+        max-width: 140rem;
+        margin: 0 auto;
+    }
+}
+
+.TopNav {
+    display: flex;
+    align-items: center;
+    height: 8rem;
+    padding: 1.5rem 2.5rem;
+
+    &__MenuToggle {
+        display: none;
+        margin-right: 2rem;
+    }
+
+    &__MenuToggle__Revealed {
+        display: block;
+    }
+
+    &__Middle {
+        display: flex;
+        flex: 1 0 auto;
+        margin-right: 10rem;
+
+        &__Form {
+            flex: 1 auto;
+        }
+        
+        &:first-child {
+            margin-right: 1.5rem;
+        }
+    }
+
+    &_Cta {
+
+    }
+}
+
+.BotNav {
+    margin-top: 0;
+    transform-origin: top;
+    transform: translateY(0) scaleY(1);
+    opacity: 1;
+    transition: all 0.2s ease-out;
+}
+
+.BotNavHidden {
+    margin-top: -5rem;
+    transform: scaleY(0);
+    opacity: 0;
+}
