@@ -7,7 +7,7 @@ const Layout = (props) => {
         <Fragment>
             <Toolbar />
             
-            <main style={{height: "200vh", marginTop: '8rem'}}>
+            <main style={{ marginTop: '8rem'}}>
                 {props.children}
             </main>
 

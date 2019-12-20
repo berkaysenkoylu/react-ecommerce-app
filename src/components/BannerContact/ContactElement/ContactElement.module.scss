@@ -1,0 +1,24 @@
+@import "../../../variables";
+
+.ContactElement {
+
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    color: $color-gray-dark;
+
+    &__Icon {
+        height: 4.5rem;
+        width: 4.5rem;
+        fill: $color-gray-dark;
+        margin-right: 2rem;
+    }
+
+    &__Text {
+        font-size: $default-font-size;
+
+        h2 {
+            font-size: 2rem;
+        }
+    }
+}

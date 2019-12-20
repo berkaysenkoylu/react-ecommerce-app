@@ -1,0 +1,23 @@
+@import "../../../variables";
+
+.Promo {
+    min-height: 33rem;
+    padding: 2rem;
+    color: $color-white;
+
+    h2 {
+        color: $color-complement;
+        font-weight: 600;
+        font-size: 3.5rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    p {
+        font-size: 1.8rem;
+        font-weight: 600;
+        max-width: 70%;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+    }
+}

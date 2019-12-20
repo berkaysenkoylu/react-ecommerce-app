@@ -1,0 +1,46 @@
+@import "../../../variables";
+
+.PrevButton {
+    all: unset;
+    z-index: 200;
+    box-sizing: border-box;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 5rem;
+    height: 5rem;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    box-shadow: 2px 4px 5px rgba($color-black, 0.15);
+    text-align: center;
+    margin-left: 1rem;
+    transition: all 0.2s ease-out;
+    cursor: pointer;
+
+    &Icon {
+        width: 3rem;
+        height: 3rem;
+        fill: $color-gray-dark;
+        transition: all 0.2s ease-out;
+    }
+
+    &:enabled &:hover {
+        transform: translateY(-50%) scale(1.1);
+        box-shadow: 3px 5px 6px rgba($color-black, 0.18);
+    }
+
+    &:enabled &:hover &Icon {
+        fill: $color-black;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        box-shadow: 1px 2px 3px rgba($color-black, 0.1);
+    }
+
+    &:disabled &Icon {
+        fill: #ddd;
+    }
+}
+

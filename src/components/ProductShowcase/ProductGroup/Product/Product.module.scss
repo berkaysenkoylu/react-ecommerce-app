@@ -1,0 +1,71 @@
+@import "../../../../variables";
+
+.Product {
+    flex: 0;
+    display: grid;
+    grid-template-columns: 26rem;
+    grid-template-rows: 15rem 18rem 7rem;
+    justify-content: center;
+    height: 40rem;
+    box-shadow: 0.5rem 1rem 1rem rgba($color-black, 0.25);
+
+    &__Image {
+        grid-row: 1 / 2;
+        grid-column: 1 / -1;
+        height: 15rem;
+        width: 100%;
+        
+        background-image: url(https://frontiersinblog.files.wordpress.com/2019/12/frontiers-bioengineering-biotechnology-manuka-honey-infections-1.jpg?w=1000);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+
+
+        // img {
+        //     height: 100%;
+        // }
+    }
+
+    &__Title {
+        width: 60%;
+        height: 5rem;
+        grid-row: 1 / 2;
+        grid-column: 1 / -1;
+        align-self: end;
+        justify-self: center;
+        transform: translateY(50%);
+        text-align: center;
+        font-size: 2.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $color-tertiary;
+        color: white; //*
+    }
+
+    &__Info {
+        grid-row: 2 / 3;
+        height: 100%;
+        padding: 4rem 2rem;
+
+        h2 {
+            font-size: 2.4rem;
+        }
+
+        p {
+            font-size: $default-font-size;
+        }
+    }
+
+    &__Cta {
+        height: 100%;
+        padding: 1rem 2rem;
+        grid-row: 3 / 4;
+        display: flex;
+        justify-content: space-between;
+
+        button {
+            font-size: $default-font-size;
+        }
+    }
+}

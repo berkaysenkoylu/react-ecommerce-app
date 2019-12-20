@@ -4,7 +4,7 @@ import classes from './Button.module.scss';
 
 const Button = (props) => {
     return (
-        <a href="#" className={classes.Button}>{props.children}</a>
+        <a href="/" className={classes.Button}>{props.children}</a>
     )
 }
 
