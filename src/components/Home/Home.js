@@ -8,7 +8,7 @@ import ProductShowcase from '../ProductShowcase/ProductShowcase';
 const Home = (props) => {
     return (
         <div>
-            <Slider />
+            <Slider slideInterval={5} />
             
             <BannerContact />
 
