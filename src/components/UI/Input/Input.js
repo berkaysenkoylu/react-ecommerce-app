@@ -34,9 +34,9 @@ const Input = (props) => {
     
     return(
         <div className={classes.Input}>
+            <p className={classes.ValidationError}>{validationError}</p>
             {inputElement}
             <label className={classes.InputElement__Label}>{props.label}</label>
-            <p className={classes.ValidationError}>{validationError}</p>
         </div>
     )
 }

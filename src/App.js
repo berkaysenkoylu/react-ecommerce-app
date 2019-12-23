@@ -1,23 +1,44 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { Route, Switch } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { connect, useDispatch } from 'react-redux';
+import { Route, Redirect, Switch } from 'react-router-dom';
 
 import Layout from './hoc/Layout/Layout';
 import Home from './components/Home/Home';
 import Authentication from './containers/Authentication/Authentication';
+import Logout from './components/Auth/Logout/Logout';
+
+import * as actions from './store/actions/index';
 
 const App = (props) => {
+	let dispatch = useDispatch();
 
-	let content = (
+	useEffect(() => {
+		dispatch(actions.authCheckState());
+	}, [dispatch]);
+
+	let routes = (
 		<Switch>
 			<Route path='/auth' component={Authentication} />
 			<Route path='/' exact component={Home} />
+			<Redirect to='/' />
 		</Switch>
-	)
+	);
+
+  
+	if(props.isAuth) {
+		routes = (
+			<Switch>
+			<Route path='/logout' component={Logout} />
+			<Route path='/auth' component={Authentication} />
+			<Route path='/' exact component={Home} />
+			<Redirect to='/' />
+			</Switch>
+		);
+	}
 
 	return (
 		<Layout>
-			{content}
+			{routes}
 		</Layout>
 	);
 }

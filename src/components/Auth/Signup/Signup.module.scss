@@ -1,0 +1,57 @@
+@import "../../../variables";
+
+.SignupWrapper {
+    margin: 20rem 0 0 0;
+    width: 100vw; // may remove
+    height: calc(100vh - 20rem); // may remove
+}
+
+.SignupBackground {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(to bottom right, rgba($color-tertiary, 0.65), rgba($color-tertiary-dark-2, 0.4)), url(../../../assets/images/signup_bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    z-index: -100;
+}
+
+.SignupCard {
+    max-width: 50%;
+    width: 40%;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: rgba(#ccc, 0.85);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+    border-radius: 3px;
+
+    p {
+        font-size: $default-font-size;
+        a {
+            display: inline-block;
+            text-decoration: none;
+            color: $color-tertiary;
+            font-weight: 700;
+            transition: all 0.2s ease-out;
+
+            &:hover {
+                color: $color-tertiary-light-1;
+            }
+        }
+    }
+}
+
+.SignupHeader {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $color-tertiary;
+}
+
+.Signup__Form {
+    margin: 2rem 0;
+}

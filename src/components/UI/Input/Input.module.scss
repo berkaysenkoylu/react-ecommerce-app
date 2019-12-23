@@ -1,9 +1,19 @@
 @import "../../../variables";
 
 .Input {
+    position: relative;
     &:not(:last-child) {
         margin-bottom: 2rem;
     }
+}
+
+.ValidationError {
+    position: absolute;
+    top: -2.8rem;
+    right: 0;
+    padding: 0.5rem;
+    color: $color-white;
+    font-size: 1.2rem;
 }
 
 .InputElement {
@@ -42,5 +52,14 @@
         opacity: 0;
         visibility: hidden;
         transform: translateY(-4rem);
+    }
+}
+
+.Invalid {
+    background-color: $color-primary-light-1;
+    border-bottom: 3px solid $color-primary;
+
+    &:focus {
+        border-bottom: 3px solid $color-primary;
     }
 }

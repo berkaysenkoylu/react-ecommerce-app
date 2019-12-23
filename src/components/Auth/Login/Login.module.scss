@@ -24,7 +24,28 @@
 }
 
 .SignupRoute {
+    position: relative;
 
+    &__Content {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 2.5rem;
+        color: $color-white;
+
+        a {
+            display: inline-block;
+            text-decoration: none;
+            color: $color-complement;
+            font-weight: 700;
+            transition: all 0.2s ease-out;
+
+            &:hover {
+                color: $color-complement-light-2;
+            }
+        }
+    }
 }
 
 .LoginHeader {
@@ -43,6 +64,16 @@
 
     &__Form {
         width: 80%;
-        height: 50%;
+    }
+}
+
+.LoginLink {
+    margin-top: 2rem;
+    &:link,
+    &:visited {
+        display: inline-block;
+        text-decoration: none;
+        font-size: $default-font-size;
+        color: $color-white;
     }
 }
