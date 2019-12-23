@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Slider from '../Slider/Slider';
+import Slider from './Slider/Slider';
 import BannerContact from '../BannerContact/BannerContact';
-import MosaicPromo from '../MosaicPromo/MosaicPromo';
-import ProductShowcase from '../ProductShowcase/ProductShowcase';
+import MosaicPromo from './MosaicPromo/MosaicPromo';
+import ProductShowcase from './ProductShowcase/ProductShowcase';
 
 const Home = (props) => {
     return (

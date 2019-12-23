@@ -1,9 +1,9 @@
-@import "../../../variables";
+@import "../../../../variables";
 
-.LeftArrow {
+.RightArrow {
     position: absolute;
     top: 50%;
-    left: 2.5rem;
+    right: 2.5rem;
     cursor: pointer;
 }
 

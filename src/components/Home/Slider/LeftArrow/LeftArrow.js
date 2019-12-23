@@ -1,6 +1,6 @@
 import React from 'react';
 
-import svg from '../../../assets/images/sprite.svg';
+import svg from '../../../../assets/images/sprite.svg';
 import classes from './LeftArrow.module.scss';
 
 const LeftArrow = (props) => {

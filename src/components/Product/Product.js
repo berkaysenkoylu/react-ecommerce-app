@@ -12,16 +12,16 @@ const Product = (props) => {
                     src="https://frontiersinblog.files.wordpress.com/2019/12/frontiers-bioengineering-biotechnology-manuka-honey-infections-1.jpg?w=1000" 
                     alt="prodcut_image" /> */}
             </div>
-            <div className={classes.Product__Title}>
-                <p>Honey</p>
+            <div className={classes.Product__Price}>
+                <p>10 $</p> <span className={classes.Product__OldPrice}>12.99 $</span>
             </div>
             <div className={classes.Product__Info}>
-                <h2>10$</h2>
+                <h2>Honey</h2>
                 <p>Very delicious and nutritious honey!</p>
             </div>
             <div className={classes.Product__Cta}>
-                <button>More info</button>
-                <button>Add to cart</button>
+                <a href="/no-page" className={[classes.Product__Button, classes.Product__Button__Info].join(' ')}>More info</a>
+                <a href="/no-page" className={[classes.Product__Button, classes.Product__Button__Add].join(' ')}>Add to cart</a>
             </div>
         </div>
     );

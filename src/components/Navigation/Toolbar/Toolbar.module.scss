@@ -4,7 +4,6 @@
     position: fixed;
     width: 100%;
     top: 0;
-    backface-visibility: hidden;
     background-color: $color-tertiary;
     font-size: $default-font-size;
     z-index: 1000;
@@ -44,9 +43,9 @@
         }
     }
 
-    &_Cta {
+    // &_Cta {
 
-    }
+    // }
 }
 
 .BotNav {

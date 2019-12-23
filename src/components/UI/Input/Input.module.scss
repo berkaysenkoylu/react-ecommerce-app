@@ -1,0 +1,46 @@
+@import "../../../variables";
+
+.Input {
+    &:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+}
+
+.InputElement {
+    display: block;
+    width: 100%;
+    font-family: inherit;
+    font-size: $default-font-size;
+    padding: 1.5rem 1rem;
+    border: none;
+    border-radius: 2px;
+    background-color: rgba($color-white, 0.75);
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s;
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+        border-bottom: 3px solid $color-tertiary-light-1;
+    }
+
+    &::-webkit-input-placeholder {
+        color: $color-gray-dark;
+    }
+
+    &__Label {
+        font-size: 1.4rem;
+        color: $color-white;
+        font-weight: 600;
+        margin-left: 1rem;
+        margin-top: 0.7rem;
+        display: block;
+        transition: all 0.3s;
+    }
+
+    &:placeholder-shown + &__Label {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-4rem);
+    }
+}

@@ -1,11 +1,11 @@
 import React from 'react';
 
 import classes from './Promo.module.scss';
-import Button from '../../UI/Button/Button';
+import LinkButton from '../../../UI/LinkButton/LinkButton';
 
 const Promo = (props) => {
 
-    let image = require(`../../../assets/images/${props.backImage}`);
+    let image = require(`../../../../assets/images/${props.backImage}`);
 
     const styles = {
         backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${image})`,
@@ -18,7 +18,7 @@ const Promo = (props) => {
         <article className={classes.Promo} style={styles}>
             <h2>{props.title}</h2>
             <p>{props.text}</p>
-            <Button>{props.button}</Button>
+            <LinkButton>{props.button}</LinkButton>
         </article>
     )
 }
