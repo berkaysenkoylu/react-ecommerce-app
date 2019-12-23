@@ -7,6 +7,7 @@ import * as actions from '../../store/actions/index';
 import ErrorDialogue from '../../components/ErrorDialogue/ErrorDialogue';
 import Login from '../../components/Auth/Login/Login';
 import Signup from '../../components/Auth/Signup/Signup';
+import RequestResetPassword from '../../components/Auth/RequestResetPassword/RequestResetPassword';
 
 class Authentication extends Component {
     constructor(props) {
@@ -39,6 +40,10 @@ class Authentication extends Component {
         this.props.login(formData);
     }
 
+    onEmailFormSubmitted = (email) => {
+        this.props.requestPasswordReset(email);
+    }
+
     onCloseErrorDialogueHandler = () => {
         this.setState({
             showError: false
@@ -55,6 +60,11 @@ class Authentication extends Component {
                 <Switch>
                     <Route path={this.props.match.url + "/login"} render={() => <Login loginFormSubmit={this.onLoginFormSubmitHandler} />} />
                     <Route path={this.props.match.url + "/signup"} render={() => <Signup signupFormSubmit={this.onSignupFormSubmitHandler} />} />
+                    <Route path={this.props.match.url + "/reset-password"} render={() => 
+                        <RequestResetPassword 
+                            emailFormSubmit={this.onEmailFormSubmitted} 
+                            loading={this.props.loading}
+                            reqSuccessfull={!this.state.showError} />} />
                     
                     <Redirect to={this.props.match.url + "/login"} />
                 </Switch>
@@ -83,7 +93,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         signup: (formData) => dispatch(actions.signup(formData)),
-        login: (formData) => dispatch(actions.login(formData))
+        login: (formData) => dispatch(actions.login(formData)),
+        requestPasswordReset: (email) => dispatch(actions.passwordResetRequest(email))
     }
 }
 

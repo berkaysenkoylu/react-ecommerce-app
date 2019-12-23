@@ -94,25 +94,28 @@ const Login = (props) => {
     });
 
     return (
-        <div className={classes.LoginWrapper}>
-            <div className={classes.LoginCard}>
-                <div className={classes.SignupRoute}>
-                    <div className={classes.SignupRoute__Content}>
-                        You don't have an account? 
-                        Signup <Link to='/auth/signup'>here!</Link>
+        <>
+            <div className={classes.LoginBackground}></div>
+            <div className={classes.LoginWrapper}>
+                <div className={classes.LoginCard}>
+                    <div className={classes.SignupRoute}>
+                        <div className={classes.SignupRoute__Content}>
+                            You don't have an account? 
+                            Signup <Link to='/auth/signup'>here!</Link>
+                        </div>
+                    </div>
+
+                    <div className={classes.Login}>
+                        <h2 className={classes.LoginHeader}>LOGIN</h2>
+                        <form onSubmit={onLoginFormSubmitHandler} className={classes.Login__Form}>
+                            {formFields}
+                            <Button disabled={!isFormValid}>Login</Button>
+                        </form>
+                        <Link to="/auth/reset-password" className={classes.LoginLink}>Forgot your password?</Link>
                     </div>
                 </div>
-
-                <div className={classes.Login}>
-                    <h2 className={classes.LoginHeader}>LOGIN</h2>
-                    <form onSubmit={onLoginFormSubmitHandler} className={classes.Login__Form}>
-                        {formFields}
-                        <Button disabled={!isFormValid}>Login</Button>
-                    </form>
-                    <a href="/forgot-password" className={classes.LoginLink}>Forgot your password?</a>
-                </div>
             </div>
-        </div>
+        </>
     );
 }
 

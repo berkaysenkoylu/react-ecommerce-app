@@ -3,5 +3,6 @@ export {
     signupRedirect,
     login,
     logout,
-    authCheckState
+    authCheckState,
+    passwordResetRequest
 } from './auth';

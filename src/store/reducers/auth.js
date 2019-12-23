@@ -36,6 +36,12 @@ const reducer = (state=initialState, action) => {
             return updateObject(state, { isLoading: false, error:  action.error, token: null, isAuth: false, userId: false, redirectPath: null });
         case actionTypes.LOGOUT:
             return updateObject(state, { isLoading: false, error: null, token: null, isAuth: false, userId: null, redirectPath: null });
+        case actionTypes.PASSWORD_RESET_REQUEST_START:
+            return updateObject(state, { isLoading: true, error: null, token: null, isAuth: false, userId: null, redirectPath: null });
+        case actionTypes.PASSWORD_RESET_REQUEST_SUCCESS:
+            return updateObject(state, { isLoading: false, error: null, token: null, isAuth: false, userId: null, redirectPath: action.path });
+        case actionTypes.PASSWORD_RESET_REQUEST_FAIL:
+            return updateObject(state, { isLoading: false, error: action.error, token: null, isAuth: false, userId: null, redirectPath: action.path });
         default:
             break;
     }
