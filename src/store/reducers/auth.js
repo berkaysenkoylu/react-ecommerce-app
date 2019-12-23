@@ -2,10 +2,11 @@ import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
     isLoading: false,
-    feedback: { isError: false, message: null },
+    error: null,
     token: null,
     isAuth: false,
-    userId: null
+    userId: null,
+    redirectPath: null
 };
 
 // Utility function for state management
@@ -20,21 +21,21 @@ const reducer = (state=initialState, action) => {
 
     switch(action.type) {
         case actionTypes.SIGNUP_START:
-            return updateObject(state, { isLoading: true, feedback: { isError: false, message: null } });
+            return updateObject(state, { isLoading: true, error: null, redirectPath: null });
         case actionTypes.SIGNUP_SUCCESS:
-            return updateObject(state, { isLoading: false, feedback: { isError: false, message: action.success } });
+            return updateObject(state, { isLoading: false, error: null, redirectPath: action.path });
         case actionTypes.SIGNUP_FAIL:
-            return updateObject(state, { isLoading: false, feedback: { isError: true, message: action.error } });
+            return updateObject(state, { isLoading: false, error: action.error, redirectPath: null });
         case actionTypes.SIGNUP_REDIRECT:
-            return updateObject(state, { isLoading: false, feedback: { isError: false, message: null } });
+            return updateObject(state, { isLoading: false, error: null });
         case actionTypes.LOGIN_START:
-            return updateObject(state, { isLoading: true, feedback: { isError: false, message: null }, token: null, isAuth: false, userId: null });
+            return updateObject(state, { isLoading: true, error: null, token: null, isAuth: false, userId: null, redirectPath: null });
         case actionTypes.LOGIN_SUCCESS:
-            return updateObject(state, { isLoading: false, feedback: { isError: false, message: null }, token: action.token, isAuth: true, userId: action.userId });
+            return updateObject(state, { isLoading: false, error: null, token: action.token, isAuth: true, userId: action.userId, redirectPath: action.path });
         case actionTypes.LOGIN_FAIL:
-            return updateObject(state, { isLoading: false, feedback: { isError: true, message: action.error }, token: null, isAuth: false, userId: false });
+            return updateObject(state, { isLoading: false, error:  action.error, token: null, isAuth: false, userId: false, redirectPath: null });
         case actionTypes.LOGOUT:
-            return updateObject(state, { isLoading: false, feedback: { isError: false, message: null }, token: null, isAuth: false, userId: null });
+            return updateObject(state, { isLoading: false, error: null, token: null, isAuth: false, userId: null, redirectPath: null });
         default:
             break;
     }

@@ -10,7 +10,7 @@ export const signupStart = () => {
 export const signupSuccess = () => {
     return {
         type: actionTypes.SIGNUP_SUCCESS,
-        success: 'Successfully signed up!'
+        path: '/auth/login'
     };
 };
 
@@ -78,7 +78,8 @@ export const loginSuccess = (token, userId) => {
     return {
         type: actionTypes.LOGIN_SUCCESS,
         token: token,
-        userId: userId
+        userId: userId,
+        path: '/'
     };
 };
 

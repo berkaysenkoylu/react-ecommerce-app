@@ -92,25 +92,8 @@ const Signup = (props) => {
 
         if(isFormValid) {
             props.signupFormSubmit(singupForm);
-
-            // Reset the form fields
-            resetFormFields();
         }
     }
-
-    const resetFormFields = () => {
-        let copiedFormControls = Object.keys(formControls).map(formControl => {
-           return {
-               ...formControls[formControl],
-               valid: false,
-               touched: false,
-               value: ''
-           };
-       });
-
-       setFormControls(copiedFormControls);
-       setIsFormValid(false);
-   }
 
     let formFields = Object.keys(formControls).map(formControl => {
         return <Input
