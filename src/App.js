@@ -6,6 +6,7 @@ import Layout from './hoc/Layout/Layout';
 import Home from './components/Home/Home';
 import Authentication from './containers/Authentication/Authentication';
 import Logout from './components/Auth/Logout/Logout';
+import ProductContainer from './containers/ProductContainer/ProductContainer';
 
 import * as actions from './store/actions/index';
 
@@ -18,6 +19,7 @@ const App = (props) => {
 
 	let routes = (
 		<Switch>
+			<Route path='/shop' component={ProductContainer} />
 			<Route path='/auth' component={Authentication} />
 			<Route path='/' exact component={Home} />
 			<Redirect to='/' />
@@ -28,10 +30,11 @@ const App = (props) => {
 	if(props.isAuth) {
 		routes = (
 			<Switch>
-			<Route path='/logout' component={Logout} />
-			<Route path='/auth' component={Authentication} />
-			<Route path='/' exact component={Home} />
-			<Redirect to='/' />
+				<Route path='/shop' component={ProductContainer} />
+				<Route path='/logout' component={Logout} />
+				<Route path='/auth' component={Authentication} />
+				<Route path='/' exact component={Home} />
+				<Redirect to='/' />
 			</Switch>
 		);
 	}

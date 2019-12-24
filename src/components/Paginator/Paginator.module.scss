@@ -1,0 +1,28 @@
+@import '../../variables';
+
+.Paginator {
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.ItemPerPage {
+    display: flex;
+    align-items: center;
+
+    label {
+        color: rgba($color-gray-dark, 0.6);
+        font-size: $default-font-size;
+        margin-right: 1rem;
+    }
+}
+
+.PaginatorButtons {
+
+    button {
+        &:first-child {
+            margin-right: 2rem;
+        }
+    }
+}

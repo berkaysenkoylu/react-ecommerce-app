@@ -10,7 +10,9 @@ const NavigationItems = (props) => {
             <li>
                 <NavLink exact to="/" className={classes.Link} activeClassName={classes.ActiveLink}>Home</NavLink>
             </li>
-            <li>Shop</li>
+            <li>
+                <NavLink to="/shop" className={classes.Link} activeClassName={classes.ActiveLink}>Shop</NavLink>
+            </li>
             <li>
                 <NavLink to="/auth" className={classes.Link} activeClassName={classes.ActiveLink}>Sign in</NavLink>
             </li>
@@ -24,7 +26,9 @@ const NavigationItems = (props) => {
                 <li>
                     <NavLink exact to="/" className={classes.Link} activeClassName={classes.ActiveLink}>Home</NavLink>
                 </li>
-                <li>Shop</li>
+                <li>
+                    <NavLink to="/shop" className={classes.Link} activeClassName={classes.ActiveLink}>Shop</NavLink>
+                </li>
                 <li>Contact</li>
                 <li>About us</li>
                 <li>
