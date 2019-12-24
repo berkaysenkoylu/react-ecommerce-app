@@ -151,3 +151,41 @@ export const passwordResetRequest = (email) => {
         });
     };
 };
+
+export const resetPasswordStart = () => {
+    return {
+        type: actionTypes.PASSWORD_RESET_START
+    };
+};
+
+export const resetPasswordSuccess = () => {
+    return {
+        type: actionTypes.PASSWORD_RESET_SUCCESS,
+        path: '/'
+    };
+}
+
+export const resetPasswordFail = (error) => {
+    return {
+        type: actionTypes.PASSWORD_RESET_FAIL,
+        error: error,
+        path: '/auth/reset-password'
+    };
+}
+
+export const resetPassword = (formData, token) => {
+    return dispatch => {
+        dispatch(resetPasswordStart());
+
+        const data = {
+            newpassword: formData.password,
+            token: token
+        };
+
+        axiosAuth.post('/password-reset', data).then(response => {
+            dispatch(resetPasswordSuccess());
+        }).catch(error => {
+            dispatch(resetPasswordFail(error.response.data.message));
+        });
+    }
+}

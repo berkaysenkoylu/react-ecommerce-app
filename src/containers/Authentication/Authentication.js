@@ -8,6 +8,7 @@ import ErrorDialogue from '../../components/ErrorDialogue/ErrorDialogue';
 import Login from '../../components/Auth/Login/Login';
 import Signup from '../../components/Auth/Signup/Signup';
 import RequestResetPassword from '../../components/Auth/RequestResetPassword/RequestResetPassword';
+import ResetPassword from '../../components/Auth/ResetPassword/ResetPassword';
 
 class Authentication extends Component {
     constructor(props) {
@@ -44,6 +45,10 @@ class Authentication extends Component {
         this.props.requestPasswordReset(email);
     }
 
+    onPasswordResetFormSubmitHandler = (formData, token) => {
+        this.props.resetPassword(formData, token);
+    }
+
     onCloseErrorDialogueHandler = () => {
         this.setState({
             showError: false
@@ -60,11 +65,18 @@ class Authentication extends Component {
                 <Switch>
                     <Route path={this.props.match.url + "/login"} render={() => <Login loginFormSubmit={this.onLoginFormSubmitHandler} />} />
                     <Route path={this.props.match.url + "/signup"} render={() => <Signup signupFormSubmit={this.onSignupFormSubmitHandler} />} />
-                    <Route path={this.props.match.url + "/reset-password"} render={() => 
+                    <Route exact path={this.props.match.url + "/reset-password"} render={() => 
                         <RequestResetPassword 
                             emailFormSubmit={this.onEmailFormSubmitted} 
                             loading={this.props.loading}
                             reqSuccessfull={!this.state.showError} />} />
+                    <Route path={this.props.match.url + "/reset-password/:token"} render={() => 
+                        <ResetPassword 
+                            {...this.props} 
+                            resetFormSubmit={this.onPasswordResetFormSubmitHandler} 
+                            loading={this.props.loading}
+                            reqSuccessfull={!this.state.showError}
+                            path={this.props.redirectPath} /> } />
                     
                     <Redirect to={this.props.match.url + "/login"} />
                 </Switch>
@@ -94,7 +106,8 @@ const mapDispatchToProps = dispatch => {
     return {
         signup: (formData) => dispatch(actions.signup(formData)),
         login: (formData) => dispatch(actions.login(formData)),
-        requestPasswordReset: (email) => dispatch(actions.passwordResetRequest(email))
+        requestPasswordReset: (email) => dispatch(actions.passwordResetRequest(email)),
+        resetPassword: (formData, token) => dispatch(actions.resetPassword(formData, token))
     }
 }
 

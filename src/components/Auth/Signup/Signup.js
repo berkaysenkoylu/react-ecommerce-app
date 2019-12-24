@@ -117,7 +117,7 @@ const Signup = (props) => {
                     <h2 className={classes.SignupHeader}>Sign up</h2>
                     <form onSubmit={onSignupFormSubmitHandler} className={classes.Signup__Form}>
                         {formFields}
-                            <Button disabled={!isFormValid}>Signup</Button> {props.message ? <span>{props.message}</span> : null}
+                        <Button disabled={!isFormValid}>Signup</Button> {props.message ? <span>{props.message}</span> : null}
                     </form>
                     <p>Already have an account? <Link to="/auth/login">Login</Link></p>
                 </div>

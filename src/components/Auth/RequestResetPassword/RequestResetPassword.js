@@ -88,12 +88,6 @@ const RequestResetPassword = (props) => {
         }
     }
 
-    
-
-    // if(!requestSent) {
-        
-    // }
-
     return (
         <div className={classes.ContentWrapper}>
             <div className={classes.Background}></div>
