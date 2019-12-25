@@ -1,23 +1,26 @@
 import React, { useState, useRef } from 'react';
 
 import classes from './FilterPool.module.scss';
+import Filter from './Filter/Filter';
+
+import RangeSlider from '../UI/RangeSlider/RangeSlider';
 
 const FilterPool = (props) => {
-    const [filterOpen, setFilterOpen] = useState(false);
+    // const [filterOpen, setFilterOpen] = useState(false);
 
-    let inputRef = useRef(null);
+    // let inputRef = useRef(null);
 
-    const onFilterPoolToggled = () => {
-        setFilterOpen(inputRef.current.checked);
-    }
+    // const onFilterPoolToggled = () => {
+    //     setFilterOpen(inputRef.current.checked);
+    // }
 
-    let contentClasses = [classes.Filter__Content];
-    if(filterOpen) {
-        contentClasses = [classes.Filter__Content, classes.Filter__Content__Open];
-    }
-    else {
-        contentClasses = [classes.Filter__Content];
-    }
+    // let contentClasses = [classes.Filter__Content];
+    // if(filterOpen) {
+    //     contentClasses = [classes.Filter__Content, classes.Filter__Content__Open];
+    // }
+    // else {
+    //     contentClasses = [classes.Filter__Content];
+    // }
 
     return (
         <div>
@@ -27,7 +30,7 @@ const FilterPool = (props) => {
             </div>
 
             <div className={classes.FilterPool__Filters}>
-                <div>
+                {/* <div>
                     <div className={classes.Filter__Heading}>
                         <p>All Categories</p>
                         <input type="checkbox" id="filter-toggle" onClick={onFilterPoolToggled} ref={inputRef} />
@@ -43,7 +46,12 @@ const FilterPool = (props) => {
                             <li>Category 5</li>
                         </ul>
                     </div>
-                </div>
+                </div> */}
+                <Filter label="category" name="All Categories" />
+
+                <Filter label="price" name="Pricing" />
+
+                <RangeSlider />
             </div>
         </div>
     )

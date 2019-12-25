@@ -1,0 +1,25 @@
+@import "../../../variables";
+
+.CheckBox {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 3px;
+    background-color: $color-white;
+    outline: none;
+    border: 1px solid rgba($color-gray-dark, 0.5);
+    cursor: inherit;
+    transition: all 0.2s ease-out;
+    margin-right: 2rem;
+
+    &__Icon {
+        width: 1.8rem;
+        height: 1.8rem;
+        fill: $color-white;
+    }
+
+    &__Checked {
+        border-color: transparent;
+        background-color: $color-tertiary;
+    }
+}

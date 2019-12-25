@@ -1,0 +1,27 @@
+@import "../../../variables";
+
+.RangeSlider {
+    position: relative;
+    height: 26px;
+    padding: 9px 0;
+    margin-top: 5rem;
+    
+    &__Background,
+    &__BackgroundFull {
+        position: absolute;
+        height: 8px;
+        border-radius: 5px;
+    }
+
+    &__Background {
+        width: 100%;
+        background-color: rgba($color-gray-dark, 0.5);
+        z-index: 1000;
+        cursor: pointer;
+    }
+
+    &__BackgroundFull {
+        background-color: rgba($color-tertiary-dark-1, 0.5);
+        z-index: 10;
+    }
+}
