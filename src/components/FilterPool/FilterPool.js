@@ -1,26 +1,43 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 
 import classes from './FilterPool.module.scss';
 import Filter from './Filter/Filter';
 
-import RangeSlider from '../UI/RangeSlider/RangeSlider';
-
 const FilterPool = (props) => {
-    // const [filterOpen, setFilterOpen] = useState(false);
+    const [filters, setFilter] = useState({
+        allCategories: {
+            name: 'All Categories',
+            type: 'checkbox',
+            elements: [
+                {
+                    name: 'Category 1',
+                    selected: false
+                },
+                {
+                    name: 'Category 2',
+                    selected: false
+                },
+                {
+                    name: 'Category 3',
+                    selected: false
+                }
+            ]
+        },
+        pricing: {
+            name: 'Pricing',
+            type: 'slider',
+            elements: {
+                min: 0,
+                max: 400,
+                currMin: 0,
+                currMax: 400
+            }
+        }
+    });
 
-    // let inputRef = useRef(null);
-
-    // const onFilterPoolToggled = () => {
-    //     setFilterOpen(inputRef.current.checked);
-    // }
-
-    // let contentClasses = [classes.Filter__Content];
-    // if(filterOpen) {
-    //     contentClasses = [classes.Filter__Content, classes.Filter__Content__Open];
-    // }
-    // else {
-    //     contentClasses = [classes.Filter__Content];
-    // }
+    let filterContent = Object.keys(filters).map(filter => {
+        return <Filter key={filter} label={filter} name={filters[filter].name} type={filters[filter].type} elements={filters[filter].elements}  />
+    })
 
     return (
         <div>
@@ -30,28 +47,7 @@ const FilterPool = (props) => {
             </div>
 
             <div className={classes.FilterPool__Filters}>
-                {/* <div>
-                    <div className={classes.Filter__Heading}>
-                        <p>All Categories</p>
-                        <input type="checkbox" id="filter-toggle" onClick={onFilterPoolToggled} ref={inputRef} />
-                        <label htmlFor="filter-toggle">&nbsp;</label>
-                    </div>
-
-                    <div style={{overflow: 'hidden'}}>
-                        <ul className={contentClasses.join(' ')}>
-                            <li>Category 1</li>
-                            <li>Category 2</li>
-                            <li>Category 3</li>
-                            <li>Category 4</li>
-                            <li>Category 5</li>
-                        </ul>
-                    </div>
-                </div> */}
-                <Filter label="category" name="All Categories" />
-
-                <Filter label="price" name="Pricing" />
-
-                <RangeSlider />
+                {filterContent}
             </div>
         </div>
     )

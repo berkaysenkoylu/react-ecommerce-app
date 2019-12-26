@@ -93,7 +93,7 @@ class Toolbar extends Component {
                 </div>
                 
                 <nav className={this.bottomNavClassList.join(' ')}>
-                    <NavigationItems isAuth={this.props.isAuth} />
+                    <NavigationItems isAuth={this.props.isAuth} status={this.props.userStatus} />
                 </nav>
             </header>
         );

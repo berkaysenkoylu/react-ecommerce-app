@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 import classes from './NavigationItems.module.scss';
 
 const NavigationItems = (props) => {
-
     let navList = (
         <>
             <li>
@@ -34,6 +33,14 @@ const NavigationItems = (props) => {
                 <li>
                     <NavLink to="/logout" className={classes.Link}>Logout</NavLink>
                 </li>
+                {props.status === 'admin' ? <>
+                    <li>
+                        <NavLink to="/admin/products" className={classes.Link} activeClassName={classes.ActiveLink}>Products</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/admin/add-product" className={classes.Link} activeClassName={classes.ActiveLink}>Add Product</NavLink>
+                    </li>
+                    </> : null}
             </>
         )
     }

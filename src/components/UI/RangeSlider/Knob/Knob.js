@@ -37,7 +37,7 @@ const Knob = (props) => {
     };
 
     return (
-        <div className={classes.Knob} style={style} onMouseDown={props.clicked} ref={props.knobRef}></div>
+        <div className={classes.Knob} style={style} onMouseDown={props.clicked} ref={props.knobRef} id={props.id}></div>
     )
 }
 

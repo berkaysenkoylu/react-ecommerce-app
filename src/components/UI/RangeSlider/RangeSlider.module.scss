@@ -1,11 +1,15 @@
 @import "../../../variables";
 
+.RangeSliderContainer {
+    font-size: 2rem;
+}
+
 .RangeSlider {
     position: relative;
     height: 26px;
     padding: 9px 0;
-    margin-top: 5rem;
-    
+    margin-top: 2rem;
+
     &__Background,
     &__BackgroundFull {
         position: absolute;

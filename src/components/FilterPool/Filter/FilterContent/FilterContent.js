@@ -2,6 +2,7 @@ import React from 'react';
 
 import classes from './FilterContent.module.scss';
 import FilterItem from '../FilterItem/FilterItem';
+import RangeSlider from '../../../UI/RangeSlider/RangeSlider';
 
 const FilterContent = (props) => {
 
@@ -13,15 +14,25 @@ const FilterContent = (props) => {
         contentClasses = [classes.FilterContent];
     }
 
+    let filterContent = null;
+    switch(props.type) {
+        case 'checkbox':
+            filterContent = props.elements.map(element => {
+                return <FilterItem key={element.name} filterName={element.name} />
+            });
+            break;
+        case 'slider':
+            filterContent = <div style={{width: '90%', margin: '0 auto'}}><RangeSlider max={props.elements.max} /></div>
+            break;
+        default:
+            break;
+    }
+
     return (
         <div className={classes.FilterContent__Wrapper}>
-            <ul className={contentClasses.join(' ')}>
-                <FilterItem filterName="Category 1" />
-                <FilterItem filterName="Category 2" />
-                <FilterItem filterName="Category 3" />
-                <FilterItem filterName="Category 4" />
-                <FilterItem filterName="Category 5" />
-            </ul>
+            <div className={contentClasses.join(' ')}>
+                {filterContent}
+            </div>
         </div>
     )
 }

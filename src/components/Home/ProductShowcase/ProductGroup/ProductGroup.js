@@ -1,7 +1,7 @@
 import React from 'react';
 
 import classes from './ProductGroup.module.scss';
-import Product from '../../../../components/Product/Product';
+import Product from './Product/Product';
 
 const ProductGroup = (props) => {
     return (

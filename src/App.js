@@ -7,6 +7,7 @@ import Home from './components/Home/Home';
 import Authentication from './containers/Authentication/Authentication';
 import Logout from './components/Auth/Logout/Logout';
 import ProductContainer from './containers/ProductContainer/ProductContainer';
+import AdminProduct from './containers/AdminProduct/AdminProduct';
 
 import * as actions from './store/actions/index';
 
@@ -30,6 +31,7 @@ const App = (props) => {
 	if(props.isAuth) {
 		routes = (
 			<Switch>
+				{props.userStatus === 'admin' ? <Route path='/admin' component={AdminProduct} /> : null}
 				<Route path='/shop' component={ProductContainer} />
 				<Route path='/logout' component={Logout} />
 				<Route path='/auth' component={Authentication} />
@@ -48,7 +50,8 @@ const App = (props) => {
 
 const mapStateToProps = (state) => {
 	return {
-		isAuth: state.isAuth
+		isAuth: state.isAuth,
+		userStatus: state.userStatus
 	}
 }
 

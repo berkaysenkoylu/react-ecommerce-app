@@ -29,7 +29,7 @@ const Filter = (props) => {
                 <label htmlFor={`${props.label}-toggle`}>&nbsp;</label>
             </div>
 
-            <FilterContent show={filterOpen} />
+            <FilterContent show={filterOpen} type={props.type} elements={props.elements} />
 
             {/* <div style={{overflow: 'hidden'}}>
                 <ul className={contentClasses.join(' ')}>

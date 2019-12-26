@@ -1,0 +1,12 @@
+@import "../../../variables";
+
+.ProductList {
+    max-width: 140rem;
+    margin: 15rem auto 0 auto;
+    height: calc(100vh - 15rem);
+
+    &__Heading {
+        text-align: center;
+        font-size: $default-header-font-size;
+    }
+}

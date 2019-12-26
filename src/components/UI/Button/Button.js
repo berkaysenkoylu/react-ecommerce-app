@@ -9,6 +9,9 @@ const Button = (props) => {
         case 'BtnPrimary':
             classList = [classes.Button, classes.ButtonPrimary];
             break;
+        case 'BtnDanger':
+            classList = [classes.Button, classes.ButtonDanger];
+            break;
         default:
             break;
     }

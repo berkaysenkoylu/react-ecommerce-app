@@ -1,9 +1,11 @@
 
 .FilterContent__Wrapper {
     overflow: hidden;
+    display: flex; // Fix for margin overflowing
 }
 
 .FilterContent {
+    flex: 1 0 auto;
     display: block;
     transform-origin: top;
     height: 0;
@@ -12,6 +14,6 @@
 }
 
 .FilterContent__Open {
-    height: 20rem;
+    height: 15rem;
     // transform: scaleY(1);
 }

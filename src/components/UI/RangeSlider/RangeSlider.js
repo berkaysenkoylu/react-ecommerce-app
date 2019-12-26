@@ -9,12 +9,16 @@ class RangeSlider extends Component {
 
         this.sliderRef = React.createRef(null);
         this.knobRef = React.createRef(null);
-        this.positionX = 0;
+        this.knobRef2 = React.createRef(null);
+        this.position1 = 0;
+        this.position2 = 100;
 
         this.state = {
             dragStarted: false,
             isMouseButtonDown: false,
-            posX: 0
+            pos1: 0,
+            pos2: 100,
+            selectedKnobId: null
         }
     }
 
@@ -30,21 +34,64 @@ class RangeSlider extends Component {
         document.removeEventListener('mousemove', this.onMouseMoveHandler);
     }
 
+    getClosestKnob = (mousePos) => {
+        let selected = '';
+        if(Math.abs(mousePos - this.state.pos1) < Math.abs(mousePos - this.state.pos2)) {
+            selected = 'knob1';
+        }
+        else {
+            selected = 'knob2';
+        }
+
+        return selected;
+    }
+
     onMouseDownHandler = (event) => {
         if(event.target === this.sliderRef.current) {
-            this.positionX = this.findPosition(event);
+            // We need to find which knob is the closest to the mouse click
+            let mouseClickPos = ((event.pageX) / this.sliderRef.current.getBoundingClientRect().width) * 100;
+            let selected = this.getClosestKnob(mouseClickPos);
+
+            if(selected === 'knob1') {
+                this.position1 = this.findPosition(event);
+            }
+            else {
+                this.position2 = this.findPosition(event);
+            }
+            let knobId = '';
+            if(this.knobRef.current.id === selected) {
+                knobId = this.knobRef.current.id;
+            }
+            else {
+                knobId = this.knobRef2.current.id;
+            }
+
             this.setState({
                 dragStarted: true,
                 isMouseButtonDown: true,
-                posX: this.positionX
+                pos1: this.position1,
+                pos2: this.position2,
+                selectedKnobId: knobId
             });
         }
         else if(event.target === this.knobRef.current) {
-            this.positionX = this.findPosition(event);
+            this.position1 = this.findPosition(event);
             this.setState({
                 dragStarted: true,
                 isMouseButtonDown: true,
-                posX: this.positionX
+                pos1: this.position1,
+                pos2: this.position2,
+                selectedKnobId: this.knobRef.current.id
+            });
+        }
+        else if(event.target === this.knobRef2.current) {
+            this.position2 = this.findPosition(event);
+            this.setState({
+                dragStarted: true,
+                isMouseButtonDown: true,
+                pos1: this.position1,
+                pos2: this.position2,
+                selectedKnobId: this.knobRef2.current.id
             });
         }
         else {
@@ -61,12 +108,20 @@ class RangeSlider extends Component {
             return;
         }
         
-        this.positionX = this.findPosition(event);
+        if(this.state.selectedKnobId === 'knob1') {
+            this.position1 = this.findPosition(event);
+        }
+        else if(this.state.selectedKnobId === 'knob2') {
+            this.position2 = this.findPosition(event);
+        }
+
         this.setState(oldState => {
             return {
                 dragStarted: !oldState.dragStarted,
                 isMouseButtonDown: !oldState.isMouseButtonDown,
-                posX: this.positionX
+                pos1: this.position1,
+                pos2: this.position2,
+                selectedKnobId: null
         }});
     }
 
@@ -75,9 +130,16 @@ class RangeSlider extends Component {
             return;
         }
 
-        this.positionX = this.findPosition(event);
+        if(this.state.selectedKnobId === 'knob1') {
+            this.position1 = this.findPosition(event);
+        }
+        else if(this.state.selectedKnobId === 'knob2') {
+            this.position2 = this.findPosition(event);
+        }
+
         this.setState({
-            posX: this.positionX
+            pos1: this.position1,
+            pos2: this.position2
         });
     }
 
@@ -98,16 +160,26 @@ class RangeSlider extends Component {
     
 
     render() {
+
+        let leftMost = this.state.pos1 < this.state.pos2 ? this.state.pos1 : this.state.pos2;
+        let rightMost = this.state.pos1 > this.state.pos2 ? this.state.pos1 : this.state.pos2;
+
         let backFullStyle = {
-            left: `${this.state.posX}%`,
-            width: `${100 - this.state.posX}%`
+            left: `${leftMost}%`,
+            width: `${rightMost - leftMost}%`
         }
 
         return (
-            <div className={classes.RangeSlider}>
-                <Knob left={this.positionX} knobRef={this.knobRef} clicked={this.onMouseDownHandler} />
-                <div className={classes.RangeSlider__Background} ref={this.sliderRef}></div>
-                <div className={classes.RangeSlider__BackgroundFull} style={backFullStyle}></div>
+            <div className={classes.RangeSliderContainer}>
+                <div>
+                    ${leftMost * (this.props.max / 100)} - ${rightMost * (this.props.max / 100)}
+                </div>
+                <div className={classes.RangeSlider}>
+                    <Knob left={this.state.pos1} knobRef={this.knobRef} clicked={this.onMouseDownHandler} id={'knob1'} />
+                    <div className={classes.RangeSlider__Background} ref={this.sliderRef}></div>
+                    <div className={classes.RangeSlider__BackgroundFull} style={backFullStyle}></div>
+                    <Knob left={this.state.pos2} knobRef={this.knobRef2} clicked={this.onMouseDownHandler} id={'knob2'} />
+                </div>
             </div>
         )
     }

@@ -6,7 +6,8 @@ const initialState = {
     token: null,
     isAuth: false,
     userId: null,
-    redirectPath: null
+    redirectPath: null,
+    userStatus: null
 };
 
 // Utility function for state management
@@ -29,13 +30,13 @@ const reducer = (state=initialState, action) => {
         case actionTypes.SIGNUP_REDIRECT:
             return updateObject(state, { isLoading: false, error: null });
         case actionTypes.LOGIN_START:
-            return updateObject(state, { isLoading: true, error: null, token: null, isAuth: false, userId: null, redirectPath: null });
+            return updateObject(state, { isLoading: true, error: null, token: null, isAuth: false, userId: null, redirectPath: null, userStatus: null });
         case actionTypes.LOGIN_SUCCESS:
-            return updateObject(state, { isLoading: false, error: null, token: action.token, isAuth: true, userId: action.userId, redirectPath: action.path });
+            return updateObject(state, { isLoading: false, error: null, token: action.token, isAuth: true, userId: action.userId, redirectPath: action.path, userStatus: action.status });
         case actionTypes.LOGIN_FAIL:
-            return updateObject(state, { isLoading: false, error:  action.error, token: null, isAuth: false, userId: false, redirectPath: null });
+            return updateObject(state, { isLoading: false, error:  action.error, token: null, isAuth: false, userId: false, redirectPath: null, userStatus: null });
         case actionTypes.LOGOUT:
-            return updateObject(state, { isLoading: false, error: null, token: null, isAuth: false, userId: null, redirectPath: null });
+            return updateObject(state, { isLoading: false, error: null, token: null, isAuth: false, userId: null, redirectPath: null, userStatus: null });
         case actionTypes.PASSWORD_RESET_REQUEST_START:
             return updateObject(state, { isLoading: true, error: null, token: null, isAuth: false, userId: null, redirectPath: null });
         case actionTypes.PASSWORD_RESET_REQUEST_SUCCESS:

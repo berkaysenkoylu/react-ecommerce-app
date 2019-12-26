@@ -49,3 +49,12 @@
         height: 50%;
     }
 }
+
+.ButtonDanger {
+    background-color: $color-primary-dark-1;
+
+    &::before,
+    &::after {
+        background: $color-primary-dark-2;
+    }
+}
