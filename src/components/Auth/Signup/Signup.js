@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import classes from './Signup.module.scss';
 import Button from '../../UI/Button/Button';
 import Input from '../../UI/Input/Input';
-import checkValidity from '../authValidation';
+import checkValidity from '../../../utility/formValidation';
 
 const Signup = (props) => {
     const [formControls, setFormControls] = useState({

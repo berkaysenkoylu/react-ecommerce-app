@@ -1,0 +1,49 @@
+.Numerator {
+    width: 10rem;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    border-radius: 3px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+
+    &__Number {
+        padding: 0.6rem;
+        width: 4rem;
+    }
+
+    &__Button {
+        position: relative;
+        height: 3rem;
+        width: 3rem;
+        padding: 0.6rem;
+        background-color: #ccc;
+        cursor: pointer;
+        transition: all 0.2s ease-out;
+
+        &:hover {
+            background-color: #ddd;
+        }
+
+        &:first-child {
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+        }
+        &:last-child {
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+        }
+
+        &__Icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 1.8rem;
+            width: 1.8rem;
+        }
+    }
+}

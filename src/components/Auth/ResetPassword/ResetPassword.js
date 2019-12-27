@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import classes from './ResetPassword.module.scss';
 import Input from '../../UI/Input/Input';
 import Button from '../../UI/Button/Button';
-import checkValidity from '../../Auth/authValidation';
+import checkValidity from '../../../utility/formValidation';
 
 const ResetPassword = (props) => {
     const [resetFormControls, setResetFormControls] = useState({

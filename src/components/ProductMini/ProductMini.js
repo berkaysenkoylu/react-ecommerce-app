@@ -15,8 +15,12 @@ const ProductMini = (props) => {
         backgroundPosition: '50% 50%'
     };
 
+    const onProductPageOpened = () => {
+        props.history.push(props.match.url + '/' + props._id);
+    }
+
     return (
-        <div className={classes.ProductMini}>
+        <div className={classes.ProductMini} onClick={onProductPageOpened}>
             <div className={classes.Image} style={style}>
                 <div className={classes.ProductMini__MoreInfo} onClick={onOpenModalHandler}>
                     <svg className={classes.ProductMini__Icon}>

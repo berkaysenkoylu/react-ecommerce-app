@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import classes from './RequestResetPassword.module.scss';
 import Input from '../../UI/Input/Input';
 import Button from '../../UI/Button/Button';
-import checkValidity from '../../Auth/authValidation';
+import checkValidity from '../../../utility/formValidation';
 
 const RequestResetPassword = (props) => {
     const [email, setEmail] = useState({

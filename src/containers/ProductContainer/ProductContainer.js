@@ -4,7 +4,7 @@ import axiosProducts from '../../axios-products';
 import classes from './ProductContainer.module.scss';
 import FilterPool from '../../components/FilterPool/FilterPool';
 import Paginator from '../../components/Paginator/Paginator';
-import ProjectMini from '../../components/ProductMini/ProductMini';
+import ProductMini from '../../components/ProductMini/ProductMini';
 import Modal from '../../components/Modal/Modal';
 
 class ProductContainer extends Component {
@@ -53,8 +53,9 @@ class ProductContainer extends Component {
 
     render() {
         let productContainer = this.state.products.map(product => {
-            return <ProjectMini 
+            return <ProductMini 
                         key={product.name}
+                        {...this.props}
                         {...product}
                         openModal={this.onModalOpenHandler}
                     />

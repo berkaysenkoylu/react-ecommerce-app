@@ -1,0 +1,77 @@
+@import "../../../variables";
+
+.MutateProductBackground {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(to bottom right, rgba($color-tertiary, 0.4), rgba($color-tertiary-dark-2, 0.4)), url(../../../assets/images/christmas.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    z-index: -100;
+}
+
+.MutateProduct {
+    max-width: 140rem;
+    margin: 15rem auto 0 auto;
+    height: calc(100vh - 15rem);
+    
+
+    &__Heading {
+        text-align: center;
+        font-size: $default-header-font-size;
+    }
+
+    &__Form {
+        width: 50%;
+        margin: 2rem auto 0 auto;
+        padding: 2rem;
+        // background-color: rgba($color-gray-dark, 0.4);
+    }
+}
+
+.FileUpload {
+    margin-bottom: 4rem;
+    background-color: rgba($color-white, 0.75);
+    border-radius: 2px;
+    padding: 1rem;
+    display: flex;
+
+    &__Image {
+        float: left;
+        clear: both;
+        height: 12rem;
+    }
+
+    &__Input {
+        margin-left: auto;
+
+        input {
+            display: none;
+        }
+
+        label {
+            display: inline-block;
+            font-size: $default-font-size;
+            font-weight: 500;
+            cursor: pointer;
+            background-color: $color-complement;
+            padding: 1rem 2rem;
+            border-radius: 3px;
+            transition: all 0.2s ease-out;
+
+            &:hover {
+                background-color: $color-complement-dark-1;
+            }
+        }
+
+        span {
+            margin-left: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+    }
+
+    
+}
