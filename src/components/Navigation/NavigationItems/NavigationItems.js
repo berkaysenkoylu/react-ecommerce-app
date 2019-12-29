@@ -15,8 +15,12 @@ const NavigationItems = (props) => {
             <li>
                 <NavLink to="/auth" className={classes.Link} activeClassName={classes.ActiveLink}>Sign in</NavLink>
             </li>
-            <li>Contact</li>
-            <li>About us</li>
+            <li>
+                <NavLink to="/contact" className={classes.Link} activeClassName={classes.ActiveLink}>Contact</NavLink>
+            </li>
+            <li>
+                <NavLink to="/about" className={classes.Link} activeClassName={classes.ActiveLink}>About us</NavLink>
+            </li>
         </>
     );
     if(props.isAuth) {
@@ -28,8 +32,12 @@ const NavigationItems = (props) => {
                 <li>
                     <NavLink to="/products" className={classes.Link} activeClassName={classes.ActiveLink}>Shop</NavLink>
                 </li>
-                <li>Contact</li>
-                <li>About us</li>
+                <li>
+                    <NavLink to="/contact" className={classes.Link} activeClassName={classes.ActiveLink}>Contact</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/about" className={classes.Link} activeClassName={classes.ActiveLink}>About us</NavLink>
+                </li>
                 <li>
                     <NavLink to="/logout" className={classes.Link}>Logout</NavLink>
                 </li>

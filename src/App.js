@@ -10,6 +10,8 @@ import ProductContainer from './containers/ProductContainer/ProductContainer';
 import AdminProduct from './containers/AdminProduct/AdminProduct';
 import ProductPage from './components/ProductPage/ProductPage';
 import Cart from './components/Cart/Cart';
+import Contact from './components/Contact/Contact';
+import AboutUs from './components/AboutUs/AboutUs';
 
 import * as actions from './store/actions/index';
 
@@ -23,6 +25,8 @@ const App = (props) => {
 	let routes = (
 		<Switch>
 			<Route path='/products/:id' component={ProductPage} />
+			<Route path='/about' component={AboutUs} />
+			<Route path='/contact' component={Contact} />
 			<Route path='/cart' component={Cart} />
 			<Route path='/products' component={ProductContainer} />
 			<Route path='/auth' component={Authentication} />
@@ -36,6 +40,8 @@ const App = (props) => {
 		routes = (
 			<Switch>
 				{props.userStatus === 'admin' ? <Route path='/admin' component={AdminProduct} /> : null}
+				<Route path='/about' component={AboutUs} />
+				<Route path='/contact' component={Contact} />
 				<Route path='/cart' component={Cart} />
 				<Route path='/products/:id' component={ProductPage} />
 				<Route path='/products' component={ProductContainer} />
