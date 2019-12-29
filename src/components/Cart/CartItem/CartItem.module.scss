@@ -1,0 +1,31 @@
+@import "../../../variables";
+
+.CartItem {
+    &:not(:last-child) {
+        margin-bottom: 1.5rem;
+    }
+
+    width: 70%;
+    margin: 0 auto;
+    padding: 1rem;
+    font-size: $default-font-size;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-shadow: 0 0 1rem rgba($color-black, 0.3);
+    border-radius: 3px;
+
+    &__Remove {
+        font-weight: 600;
+        margin-left: auto;
+        cursor: pointer;
+        color: $color-black;
+        transform: scale(1);
+        transition: all 0.2s ease-out;
+
+        &:hover {
+            transform: scale(1.2);
+            color: $color-primary;
+        }
+    }
+}

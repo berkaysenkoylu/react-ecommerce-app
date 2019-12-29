@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import axiosProducts from '../../axios-products';
+import axiosCart from '../../axios-cart';
 
 import classes from './ProductPage.module.scss';
 import Spinner from '../UI/Spinner/Spinner';
@@ -39,7 +41,24 @@ const ProductPage = (props) => {
     const onAddToCardFormSubmitted = (event) => {
         event.preventDefault();
 
-        console.log(productItem);
+        // TODO: I will change this later
+        if(props.userId) {
+            let newItem = {
+                productId: productItem.productId,
+                quantity: productItem.quantity
+            }
+    
+            axiosCart.post('/' + props.userId, newItem).then(response => {
+                console.log(response.data);
+            }).catch(error => {
+                console.log(error);
+            });
+        }
+        else {
+            props.history.push('/auth/login');
+        }
+
+        
     }
 
     let pageContent = <Spinner strokeWidth={3} />;
@@ -74,4 +93,10 @@ const ProductPage = (props) => {
     )
 }
 
-export default ProductPage;
+const mapStateToProps = state => {
+    return {
+        userId: state.userId
+    }
+};
+
+export default connect(mapStateToProps)(ProductPage);

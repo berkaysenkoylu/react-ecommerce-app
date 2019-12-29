@@ -59,7 +59,8 @@ class Authentication extends Component {
         let content = null;
         if(this.props.isAuthenticated){
             // LOGIN SUCCESSFULL
-            content = <Redirect to='/' />;
+            this.props.history.goBack();
+            //content = <Redirect to='/' />;
         } else {
             content = (
                 <Switch>

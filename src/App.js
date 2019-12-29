@@ -9,6 +9,7 @@ import Logout from './components/Auth/Logout/Logout';
 import ProductContainer from './containers/ProductContainer/ProductContainer';
 import AdminProduct from './containers/AdminProduct/AdminProduct';
 import ProductPage from './components/ProductPage/ProductPage';
+import Cart from './components/Cart/Cart';
 
 import * as actions from './store/actions/index';
 
@@ -22,6 +23,7 @@ const App = (props) => {
 	let routes = (
 		<Switch>
 			<Route path='/products/:id' component={ProductPage} />
+			<Route path='/cart' component={Cart} />
 			<Route path='/products' component={ProductContainer} />
 			<Route path='/auth' component={Authentication} />
 			<Route path='/' exact component={Home} />
@@ -34,6 +36,7 @@ const App = (props) => {
 		routes = (
 			<Switch>
 				{props.userStatus === 'admin' ? <Route path='/admin' component={AdminProduct} /> : null}
+				<Route path='/cart' component={Cart} />
 				<Route path='/products/:id' component={ProductPage} />
 				<Route path='/products' component={ProductContainer} />
 				<Route path='/logout' component={Logout} />

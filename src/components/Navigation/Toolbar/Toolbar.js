@@ -88,7 +88,7 @@ class Toolbar extends Component {
                     </div>
                     
                     <div className={classes.TopNav__Cta}>
-                        <CartLink />
+                        <CartLink isAuth={this.props.isAuth} />
                     </div>
                 </div>
                 

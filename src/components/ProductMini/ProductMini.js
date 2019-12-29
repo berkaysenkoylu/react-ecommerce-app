@@ -20,20 +20,22 @@ const ProductMini = (props) => {
     }
 
     return (
-        <div className={classes.ProductMini} onClick={onProductPageOpened}>
-            <div className={classes.Image} style={style}>
-                <div className={classes.ProductMini__MoreInfo} onClick={onOpenModalHandler}>
-                    <svg className={classes.ProductMini__Icon}>
-                        <use xlinkHref={`${svg}#icon-eye`}></use>
-                    </svg>
+        <div className={classes.ProductMini}>
+            <div className={classes.ProductMini__MoreInfo} onClick={onOpenModalHandler}>
+                <svg className={classes.ProductMini__Icon}>
+                    <use xlinkHref={`${svg}#icon-eye`}></use>
+                </svg>
+            </div>
+            <div className={classes.ProductMini__Wrapper} onClick={onProductPageOpened}>
+                <div className={classes.Image} style={style}></div>
+    
+                <div className={classes.Info}>
+                    <h2 className={classes.Info__header}>{props.name}</h2>
+                    <p className={classes.Info__description}>{props.description}</p>
+                    <p className={classes.Info__price}>${props.price}</p>
                 </div>
             </div>
-
-            <div className={classes.Info}>
-                <h2 className={classes.Info__header}>{props.name}</h2>
-                <p className={classes.Info__description}>{props.description}</p>
-                <p className={classes.Info__price}>${props.price}</p>
-            </div>
+            
         </div>
     )
 }
