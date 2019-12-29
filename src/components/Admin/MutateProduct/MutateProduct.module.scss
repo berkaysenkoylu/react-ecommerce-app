@@ -72,6 +72,14 @@
             font-weight: 500;
         }
     }
+}
 
-    
+.ShowcaseFormField {
+    margin: 2rem 0;
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: $default-font-size;
+    color: $color-white;
 }

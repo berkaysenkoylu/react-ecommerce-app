@@ -26,6 +26,12 @@ class Toolbar extends Component {
         window.removeEventListener('scroll', this.handleScrollEvent);
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if(prevState.scrolledDown !== this.state.scrolledDown) {
+            this.handleScrollEvent();
+        }
+    }
+
     handleScrollEvent = () => {
         if(!this.state.scrolledDown) {
             if(window.pageYOffset >= 50) {

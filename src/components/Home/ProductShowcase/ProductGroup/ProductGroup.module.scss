@@ -1,3 +1,5 @@
+@import "../../../../variables";
+
 .ProductGroup {
     flex: 1 0 auto;
     width: 100%;
@@ -7,4 +9,22 @@
     align-items: center;
     justify-content: space-between;
     padding: 2rem 10rem;
+}
+
+.FinalLink {
+    margin-right: auto;
+    margin-left: 2rem;
+    padding: 1rem 2rem;
+    background-color: $color-tertiary-light-2;
+    transition: all 0.2s ease-out;
+
+    &:link,
+    &:visited {
+        text-decoration: none;
+        color: $color-white;
+    }
+
+    &:hover {
+        background-color: $color-tertiary-dark-1;
+    }
 }

@@ -5,6 +5,7 @@ import Input from '../../../components/UI/Input/Input';
 import Button from '../../../components/UI/Button/Button';
 import Spinner from '../../UI/Spinner/Spinner';
 import checkValidity from '../../../utility/formValidation';
+import CheckBox from '../../UI/CheckBox/CheckBox';
 
 const MIME_TYPE_MAP = {
     'image/png': 'png',
@@ -71,6 +72,10 @@ const MutateProduct = (props) => {
             valid: false,
             selectedFile: '',
             showcaseImage: null
+        },
+        showcase: {
+            value: false,
+            valid: true
         }
     });
     const [isFormValid, setIsFormValid] = useState(false);
@@ -181,6 +186,20 @@ const MutateProduct = (props) => {
         }
     }
 
+    const onCheckboxClickedHandler = (event) => {
+        event.preventDefault();
+
+        const copiedFormControls = { ...formControls };
+
+        const copiedShowcase = { ...copiedFormControls.showcase };
+
+        copiedShowcase.value = !copiedShowcase.value;
+
+        copiedFormControls.showcase = copiedShowcase;
+
+        setFormControls(copiedFormControls);
+    }
+
     const onFormSubmitHandler = (event) => {
         event.preventDefault();
 
@@ -192,6 +211,7 @@ const MutateProduct = (props) => {
                 formData.append('file', formControls.image.value);
                 formData.append('price', formControls.price.value);
                 formData.append('description', formControls.description.value);
+                formData.append('showcase', formControls.showcase.value);
 
                 props.addProduct({ mode: 'edit', formData, id: editedProduct._id });  
             }
@@ -208,16 +228,18 @@ const MutateProduct = (props) => {
                 formData.append('name', formControls.name.value);
                 formData.append('price', formControls.price.value);
                 formData.append('description', formControls.description.value);
+                formData.append('showcase', formControls.showcase.value);
 
                 props.addProduct({ mode: 'edit', formData, id: editedProduct._id });  
             }
         }
         else {
             let formData = new FormData();
-            formData.append('name', formControls.name.value)
-            formData.append('file', formControls.image.value)
-            formData.append('price', formControls.price.value)
-            formData.append('description', formControls.description.value)
+            formData.append('name', formControls.name.value);
+            formData.append('file', formControls.image.value);
+            formData.append('price', formControls.price.value);
+            formData.append('description', formControls.description.value);
+            formData.append('showcase', formControls.showcase.value);
 
             props.addProduct({ mode: 'add', formData });
         }
@@ -270,6 +292,11 @@ const MutateProduct = (props) => {
                             <span>{formControls.image.selectedFile !== "" ? `Selected: ${formControls.image.selectedFile}` : 'No file selected yet'}</span>
                         </div>
                     </div>
+
+                    <div className={classes.ShowcaseFormField}>
+                        <CheckBox checked={formControls.showcase.value} clicked={onCheckboxClickedHandler} /> <span>Is showcase</span>
+                    </div>
+
                     <Input 
                         elementType={formControls.price.elementType}
                         elementConfig={formControls.price.elementConfig}
