@@ -5,6 +5,7 @@ import axiosCart from '../../axios-cart';
 import classes from './Cart.module.scss';
 import Spinner from '../UI/Spinner/Spinner';
 import CartItem from './CartItem/CartItem';
+import Button from '../UI/Button/Button';
 
 const Cart = (props) => {
     const [cartItems, setCartItems] = useState([]);
@@ -39,6 +40,12 @@ const Cart = (props) => {
         });
     }
 
+    const onCheckoutHandler = (event) => {
+        event.preventDefault();
+
+        props.history.push('/checkout');
+    }
+
     let pageContent = null;
     if(isLoading) {
         pageContent = <Spinner strokeWidth={4} />
@@ -62,6 +69,10 @@ const Cart = (props) => {
 
             <div className={classes.Cart__Content}>
                 {pageContent}
+            </div>
+
+            <div className={classes.Cart__Cta}>
+                <Button clicked={onCheckoutHandler}>Checkout</Button>
             </div>
         </div>
     )

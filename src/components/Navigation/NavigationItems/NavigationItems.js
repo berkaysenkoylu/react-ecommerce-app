@@ -33,6 +33,9 @@ const NavigationItems = (props) => {
                     <NavLink to="/products" className={classes.Link} activeClassName={classes.ActiveLink}>Shop</NavLink>
                 </li>
                 <li>
+                    <NavLink to="/orders" className={classes.Link} activeClassName={classes.ActiveLink}>Orders</NavLink>
+                </li>
+                <li>
                     <NavLink to="/contact" className={classes.Link} activeClassName={classes.ActiveLink}>Contact</NavLink>
                 </li>
                 <li>

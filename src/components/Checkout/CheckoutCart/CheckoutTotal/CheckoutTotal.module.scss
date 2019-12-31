@@ -1,0 +1,25 @@
+@import "../../../../variables";
+
+.CheckoutTotal {
+    display: flex;
+    flex-direction: row;
+    font-size: 2rem;
+    padding: 2rem 0;
+    margin-top: 2rem;
+    border-top: 1px solid rgba($color-gray-dark, 0.2);
+
+    &__Currency {
+        margin-left: auto;
+        color: rgba($color-gray-dark, 0.5);
+        font-size: 1.3rem;
+
+        display: flex;
+        align-items: center;
+    }
+
+    &__Amount {
+        color: $color-black;
+        font-size: 2.4rem;
+        margin-left: 1.5rem;
+    }
+}

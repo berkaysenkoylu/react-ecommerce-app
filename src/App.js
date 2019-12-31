@@ -10,8 +10,10 @@ import ProductContainer from './containers/ProductContainer/ProductContainer';
 import AdminProduct from './containers/AdminProduct/AdminProduct';
 import ProductPage from './components/ProductPage/ProductPage';
 import Cart from './components/Cart/Cart';
+import Checkout from './components/Checkout/Checkout';
 import Contact from './components/Contact/Contact';
 import AboutUs from './components/AboutUs/AboutUs';
+import Orders from './components/Orders/Orders';
 
 import * as actions from './store/actions/index';
 
@@ -27,6 +29,8 @@ const App = (props) => {
 			<Route path='/products/:id' component={ProductPage} />
 			<Route path='/about' component={AboutUs} />
 			<Route path='/contact' component={Contact} />
+			<Route path='/checkout' render={() => <Checkout userId={props.userId} />} />
+			<Route path='/orders' render={() => <Orders userId={props.userId} />} />
 			<Route path='/cart' component={Cart} />
 			<Route path='/products' component={ProductContainer} />
 			<Route path='/auth' component={Authentication} />
@@ -42,6 +46,8 @@ const App = (props) => {
 				{props.userStatus === 'admin' ? <Route path='/admin' component={AdminProduct} /> : null}
 				<Route path='/about' component={AboutUs} />
 				<Route path='/contact' component={Contact} />
+				<Route path='/checkout' render={() => <Checkout userId={props.userId} />} />
+				<Route path='/orders' render={() => <Orders userId={props.userId} />} />
 				<Route path='/cart' component={Cart} />
 				<Route path='/products/:id' component={ProductPage} />
 				<Route path='/products' component={ProductContainer} />
@@ -63,7 +69,8 @@ const App = (props) => {
 const mapStateToProps = (state) => {
 	return {
 		isAuth: state.isAuth,
-		userStatus: state.userStatus
+		userStatus: state.userStatus,
+		userId: state.userId
 	}
 }
 

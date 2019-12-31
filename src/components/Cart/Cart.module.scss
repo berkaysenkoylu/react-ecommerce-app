@@ -9,7 +9,7 @@
         text-transform: uppercase;
         font-size: $default-header-font-size;
         text-align: center;
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
     }
 
     &__Content {
@@ -17,5 +17,10 @@
             font-size: $default-font-size;
             text-align: center;
         }        
+    }
+
+    &__Cta {
+        margin-top: 3rem;
+        text-align: center;
     }
 }

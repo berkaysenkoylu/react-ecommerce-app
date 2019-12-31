@@ -1,0 +1,32 @@
+@import "../../variables";
+
+.Checkout__bg {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to bottom right, rgba($color-tertiary, 0.3), rgba($color-tertiary-dark-2, 0.4));
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    z-index: -100;
+}
+
+.Checkout {
+    max-width: 140rem;
+    margin: 15rem auto 0 auto ;
+    height: calc(100vh - 15rem); // may remove
+    padding: 0 2rem;
+
+    display: flex;
+    flex-direction: row;
+
+    &__Form {
+        width: 60%;
+    }
+
+    &__Cart {
+        width: 40%;
+        overflow: hidden;
+    }
+}
