@@ -11,7 +11,6 @@ import CheckoutForm from './CheckoutForm/CheckoutForm';
 const Checkout = (props) => {
     const [items, setItems] = useState([]);
     const [checkoutRequestSuccessful, setCheckoutRequestSuccessful] = useState(false);
-    // const [paymentToken, setPaymentToken] = useState(null);
 
     useEffect(() => {
         if(props.userId) {
@@ -29,9 +28,14 @@ const Checkout = (props) => {
             basketItems: items
         };
 
-        axiosOrder.post('', checkoutData).then(response => {
+        let config = {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
+            }
+        }
+
+        axiosOrder.post('', checkoutData, config).then(response => {
             if(response.data.result.status === 'success') {
-                // console.log('request is successfull');
                 setCheckoutRequestSuccessful(true);
 
                 postscribe('#script', response.data.result.checkoutFormContent);

@@ -2,4 +2,12 @@
     max-width: 140rem;
     margin: 15rem auto 0 auto ;
     height: calc(100vh - 15rem); // may remove
+
+    &__Header {
+        h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+    }
 }

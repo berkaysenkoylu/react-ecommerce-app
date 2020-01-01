@@ -24,8 +24,9 @@
     }
 
     &__ContentOpen {
-        height: 10rem;
+        height: 36rem;
         margin-top: 1rem;
+        overflow-y: scroll;
     }
 
     &__Title {
@@ -65,7 +66,48 @@
         }
     }
 
-    &__Description {
+    &__Details {
+        border-top: 1px solid rgba($color-black, 0.15);
+        padding: 1rem 0;
         font-size: 1.3rem;
+
+        h2 {
+            text-align: center;
+            margin: 1rem 0;
+            font-size: $default-font-size;
+
+            span {
+                text-decoration: underline;
+                color: $color-tertiary-dark-1;
+                cursor: pointer;
+                transition: color 0.2s ease-out;
+
+                &:hover {
+                    color: $color-tertiary;
+                }
+            }
+        }
+    }
+
+    &__Table {
+        font-family: inherit;
+        border-collapse: collapse;
+        width: 70%;
+        margin: 0 auto;
+
+        &:last-child {
+            margin-top: 1.5rem;
+        }
+
+        thead {
+            background-color: rgba($color-gray-dark, 0.2);
+        }
+
+        td, th {
+            border: 1px solid rgba($color-gray-dark, 0.2);
+            text-align: left;
+            padding: 8px;
+        }
+    
     }
 }
