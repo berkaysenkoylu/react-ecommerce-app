@@ -57,6 +57,13 @@ class Toolbar extends Component {
     };
 
     navToggleClickedHandler = () => {
+        // Get the screen width and check if it is within the breakpoints
+        // If it is, toggle big menu instead
+        if(window.innerWidth <= 600) {
+            this.props.toggleBigMenu();
+        }
+
+        // If the screen is larger, enlarge the navbar
         this.setState(prevState => {
             return {
                 showLinks: !prevState.showLinks
@@ -79,6 +86,12 @@ class Toolbar extends Component {
             this.navToggleClassList = [classes.TopNav__MenuToggle];
         }
 
+        if(!this.props.hideNavbar) {
+            if(this.checkBoxRef.current !== null) {
+                this.checkBoxRef.current.checked = false;
+            }
+        }
+
         return (
             <header className={classes.Toolbar}>
                 <div className={classes.TopNav}>
@@ -86,14 +99,14 @@ class Toolbar extends Component {
                         <MenuToggle clicked={this.navToggleClickedHandler} checkBox={this.checkBoxRef} />
                     </div>
                     
-                    <div className={classes.TopNav__Middle}>
+                    <div className={classes.TopNav__Middle} style={this.props.hideNavbar ? {display: 'none'} : null}>
                         <Logo />
                         <div className={classes.TopNav__Middle__Form}>
                             <SearchBar />
                         </div>
                     </div>
                     
-                    <div className={classes.TopNav__Cta}>
+                    <div className={classes.TopNav__Cta} style={this.props.hideNavbar ? {display: 'none'} : null}>
                         <CartLink isAuth={this.props.isAuth} />
                     </div>
                 </div>

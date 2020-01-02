@@ -3,7 +3,12 @@
 .AboutUs {
     max-width: 140rem;
     margin: 15rem auto 0 auto ;
-    height: calc(100vh - 15rem); // may remove
+    min-height: calc(100vh - 15rem); // may remove
+
+    @media only screen and (max-width: $bp-small) {
+        margin: 1rem auto 1rem auto ;
+        min-height: calc(100vh - 10rem); // may remove
+    }
 
     &__Heading {
         text-align: center;

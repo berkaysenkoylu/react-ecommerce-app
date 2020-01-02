@@ -36,3 +36,10 @@ $color-gray-light: #eee;
 // FONT SIZE
 $default-font-size: 1.6rem;
 $default-header-font-size: 2.5rem;
+
+// Breakpoints
+$bp-largest: 75em; // 1200px / 16px = 75em
+$bp-large: 62.5em; // 1000px / 16px = 62.5em
+$bp-medium: 50em; // 800px / 16px = 50em
+$bp-small: 37.5em; // 600px / 16px = 37.5em
+$bp-xsmall: 28.125em; // 450px / 16px = 28.125em

@@ -8,13 +8,9 @@ const NavigationItems = (props) => {
     let navList = (
         <>
             <NavigationItem exact to="/">Home</NavigationItem>
-
             <NavigationItem exact to="/products">Shop</NavigationItem>
-
             <NavigationItem exact to="/auth">Sign in</NavigationItem>
-
             <NavigationItem exact to="/contact">Contact</NavigationItem>
-
             <NavigationItem exact to="/about">About us</NavigationItem>
         </>
     );
@@ -22,17 +18,11 @@ const NavigationItems = (props) => {
         navList = (
             <>
                 <NavigationItem exact to="/">Home</NavigationItem>
-
                 <NavigationItem exact to="/products">Shop</NavigationItem>
-
                 {props.status !== 'admin' ? <NavigationItem exact to="/orders">My Orders</NavigationItem> : null}
-
                 <NavigationItem exact to="/contact">Contact</NavigationItem>
-
                 <NavigationItem exact to="/about">About us</NavigationItem>
-                
                 <NavigationItem exact to="/logout">Logout</NavigationItem>
-
                 {props.status === 'admin' ? <>
                     <NavigationAdmin />
                 </> : null}

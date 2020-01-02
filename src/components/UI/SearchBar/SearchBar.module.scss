@@ -5,6 +5,10 @@
     width: 100%;
     display: flex;
     justify-content: flex-start;
+
+    @media only screen and (max-width: $bp-small) {
+        display: none;
+    }
 }
 
 .SearchInput {

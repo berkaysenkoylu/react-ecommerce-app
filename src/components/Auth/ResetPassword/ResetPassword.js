@@ -43,10 +43,17 @@ const ResetPassword = (props) => {
     let token = props.location.pathname.split('/')[props.location.pathname.split('/').length - 1];
 
     useEffect(() => {
-        if(props.path === '/') {
-            props.history.push('/');
+        let timeoutId = setTimeout(() => {
+            if(props.path === '/') {
+                props.history.push('/');
+            }
+        }, 2000);
+
+        return () => {
+            clearTimeout(timeoutId);
         }
     }, [props.path, props.history]);
+
 
     const inputChangedHandler = (event, inputName) => {
         const copiedFormControls = { ...resetFormControls };
@@ -104,6 +111,11 @@ const ResetPassword = (props) => {
                 LOADING...
             </div>
         );
+    }
+    else if(props.path === '/') {
+        pageContent = (<div className={classes.ResetCard}>
+            <p className={classes.ResetedPasswordHeader}>Successfully changed your password</p>
+        </div>);
     }
     else {
         

@@ -6,7 +6,7 @@
     top: 0;
     background-color: $color-tertiary;
     font-size: $default-font-size;
-    z-index: 500;
+    z-index: 1500;
 
     & > * {
         max-width: 140rem;
@@ -23,6 +23,10 @@
     &__MenuToggle {
         display: none;
         margin-right: 2rem;
+
+        @media only screen and (max-width: $bp-small) {
+            display: block;
+        }
     }
 
     &__MenuToggle__Revealed {
@@ -34,6 +38,10 @@
         flex: 1 0 auto;
         margin-right: 10rem;
 
+        // @media only screen and (max-width: $bp-small) {
+        //     display: none;
+        // }
+
         &__Form {
             flex: 1 auto;
         }
@@ -43,9 +51,11 @@
         }
     }
 
-    // &_Cta {
-
-    // }
+    &__Cta {
+        // @media only screen and (max-width: $bp-small) {
+        //     display: none;
+        // }
+    }
 }
 
 .BotNav {
@@ -54,6 +64,10 @@
     transform: translateY(0) scaleY(1);
     opacity: 1;
     transition: all 0.2s ease-out;
+
+    @media only screen and (max-width: $bp-small) {
+        display: none;
+    }
 }
 
 .BotNavHidden {
