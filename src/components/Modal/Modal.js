@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 
 import classes from './Modal.module.scss';
@@ -40,7 +41,7 @@ const Modal = (props) => {
                                 <p>{props.product.description}</p>
                                 <span>${props.product.price}</span>
                                 <div className={classes.ModalContent__CallToAction}>
-                                    <button>Some action</button>
+                                    <Link to={`/products/${props.product._id}`}>More info</Link>
                                 </div>
                             </div>
                         </div>

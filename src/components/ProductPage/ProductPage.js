@@ -7,6 +7,7 @@ import classes from './ProductPage.module.scss';
 import Spinner from '../UI/Spinner/Spinner';
 import Button from '../UI/Button/Button';
 import Numerator from '../UI/Numerator/Numerator';
+import CartModal from '../CartModal/CartModal';
 
 const ProductPage = (props) => {
     const [product, setProduct] = useState(null);
@@ -15,6 +16,7 @@ const ProductPage = (props) => {
         quantity: 1,
         price: 0
     });
+    const [modalOpen, setModalOpen] = useState(false);
 
     useEffect(() => {
         axiosProducts.get('/' + props.match.params.id).then(response => {
@@ -49,7 +51,7 @@ const ProductPage = (props) => {
             }
     
             axiosCart.post('/' + props.userId, newItem).then(response => {
-                console.log(response.data);
+                setModalOpen(true);
             }).catch(error => {
                 console.log(error);
             });
@@ -57,8 +59,10 @@ const ProductPage = (props) => {
         else {
             props.history.push('/auth/login');
         }
+    }
 
-        
+    const onModaClosed = () => {
+        setModalOpen(false);
     }
 
     let pageContent = <Spinner strokeWidth={3} />;
@@ -87,9 +91,12 @@ const ProductPage = (props) => {
     }
 
     return (
-        <div className={classes.ProductPage}>
-            {pageContent}
-        </div>
+        <>
+            <CartModal show={modalOpen} message={product && `Product: '${product.name}' has been added to the cart!`} closed={onModaClosed} />
+            <div className={classes.ProductPage}>
+                {pageContent}
+            </div>
+        </>
     )
 }
 

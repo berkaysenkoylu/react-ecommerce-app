@@ -72,7 +72,7 @@ const Cart = (props) => {
             </div>
 
             <div className={classes.Cart__Cta}>
-                <Button clicked={onCheckoutHandler}>Checkout</Button>
+                <Button clicked={onCheckoutHandler} disabled={cartItems.length <= 0}>Checkout</Button>
             </div>
         </div>
     )

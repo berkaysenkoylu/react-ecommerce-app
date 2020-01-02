@@ -1,0 +1,11 @@
+.OrderList {
+    max-width: 140rem;
+    margin: 15rem auto 0 auto;
+    min-height: calc(100vh - 15rem);
+
+    &__Header {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+}

@@ -1,25 +1,41 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import axiosProducts from '../../axios-products';
+import axiosOrder from '../../axios-order';
 
-// import classes from './AdminProduct.module.scss';
 import ProductList from '../../components/Admin/Products/ProductList';
 import MutateProduct from '../../components/Admin/MutateProduct/MutateProduct';
+import OrderList from '../../components/Admin/Orders/OrderList';
 
-class AdminProduct extends Component {
+class AdminContainer extends Component {
     state = {
         products: [],
+        orders: [],
         loading: false
     };
 
     componentDidMount() {
+        let config = {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
+            }
+        }
+
         axiosProducts.get('').then(response => {
             this.setState({
                 products: response.data.products
             });
         }).catch(error => {
             console.log(error);
-        })
+        });
+        
+        axiosOrder.get('/admin', config).then(response => {
+            this.setState({
+                orders: response.data.orders
+            });
+        }).catch(error => {
+            console.log(error);
+        });
     }
 
     onAddProductHandler = (data) => {
@@ -88,13 +104,54 @@ class AdminProduct extends Component {
                 }
             })
         }).catch(error => {
-            console.log(error);
+            console.log(error.response.data.message);
+        });
+    }
+
+    onOrderEdited = (id, payload) => {
+        let config = {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
+            }
+        }
+        axiosOrder.patch('/admin/' + id, payload, config).then(response => {
+            this.setState(prevState => {
+                return {
+                    orders: prevState.orders.map(order => {
+                        if(order._id !== id) {
+                            return order;
+                        }
+                        else {
+                            order[Object.keys(payload)[0]] = payload[Object.keys(payload)[0]];
+                            return order;
+                        }
+                    })
+                }
+            });
+        }).catch(error => {
+            console.log(error.response.data.message);
+        });
+    }
+
+    onOrderDeletedHandler = (id) => {
+        let config = {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
+            }
+        }
+        axiosOrder.delete('/admin/' + id, config).then(response => {
+            this.setState(prevState => {
+                return {
+                    orders: prevState.orders.filter(order => order._id !== id)
+                }
+            });
         });
     }
 
     render() {
         return (
             <Switch>
+                <Route path={this.props.match.url + "/orders"} render={() => <OrderList list={this.state.orders} editOrder={this.onOrderEdited} orderDeleted={this.onOrderDeletedHandler} />} />
                 <Route path={this.props.match.url + "/products"} render={() => <ProductList list={this.state.products} editProduct={this.onEditProduct} deleteProduct={this.onDeleteProduct} />} />
                 <Route path={this.props.match.url + "/add-product"} render={() => <MutateProduct {...this.props} addProduct={this.onAddProductHandler} editProduct={this.onAddProductHandler} loading={this.state.loading} productList={this.state.products} />} />
             </Switch>
@@ -102,4 +159,4 @@ class AdminProduct extends Component {
     }
 }
 
-export default AdminProduct;
+export default AdminContainer;

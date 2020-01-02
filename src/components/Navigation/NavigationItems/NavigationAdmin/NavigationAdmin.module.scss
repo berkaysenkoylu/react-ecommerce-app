@@ -1,0 +1,52 @@
+@import "../../../../variables";
+
+.NavigationAdmin {
+    position: relative;
+    margin-left: auto;
+    
+
+    &__Label {
+        font-size: $default-font-size;
+        padding: 0.75rem 1rem;
+        color: $color-white;
+        cursor: pointer;
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: -0.5rem;
+            transform: translate(-50%, -50%) rotateZ(45deg);
+            width: 0.75rem;
+            height: 0.75rem;
+            border-bottom: 2px solid $color-white;
+            border-right: 2px solid $color-white;
+        }
+    }
+
+    &__List {
+        right: 0;
+        top: 4rem;
+        background-color: $color-tertiary;
+        position: absolute;
+        list-style: none;
+        height: 0;
+        width: 13rem;
+        overflow: hidden;
+        transition: all 0.2s ease-out;
+        
+        li {
+            margin-right: 0 !important;
+            padding: 0.75rem 1rem;
+
+            a {
+                padding: 0 !important;
+            }
+        }
+    }
+
+    &:hover &__List {
+         height: 10.8rem;
+    }
+}

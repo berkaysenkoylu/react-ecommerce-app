@@ -84,15 +84,18 @@
         margin-top: 2rem;
         margin-left: auto;
 
-        button {
-            all: unset;
-            background-color: $color-tertiary-light-2;
-            color: $color-white;
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.2s;
-    
+        a {
+            &:link,
+            &:visited {
+                all: unset;
+                background-color: $color-tertiary-light-2;
+                color: $color-white;
+                padding: 0.5rem 1rem;
+                cursor: pointer;
+                font-weight: 600;
+                transition: all 0.2s;
+            }
+
             &:hover {
                 background-color: $color-tertiary;
             }

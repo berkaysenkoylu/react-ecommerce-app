@@ -65,17 +65,17 @@
 }
 
 .SelectElement {
-    all: unset;
+    // all: unset;
     display: block;
     font-family: inherit;
     font-size: $default-font-size;
-    width: 5rem;
-    height: 100%;
+    // width: 5rem;
+    // height: 100%;
     padding: 0;
-    border: none;
-    border-bottom: 1px solid rgba($color-gray-dark, 0.5);
+    // border: none;
+    // border-bottom: 1px solid rgba($color-gray-dark, 0.5);
     cursor: pointer;
-    
+
     &::selection {
         outline: none;
         border-bottom: 3px solid $color-tertiary-light-1;

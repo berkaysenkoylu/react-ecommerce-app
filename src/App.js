@@ -7,7 +7,7 @@ import Home from './components/Home/Home';
 import Authentication from './containers/Authentication/Authentication';
 import Logout from './components/Auth/Logout/Logout';
 import ProductContainer from './containers/ProductContainer/ProductContainer';
-import AdminProduct from './containers/AdminProduct/AdminProduct';
+import AdminContainer from './containers/AdminContainer/AdminContainer';
 import ProductPage from './components/ProductPage/ProductPage';
 import Cart from './components/Cart/Cart';
 import Checkout from './components/Checkout/Checkout';
@@ -43,7 +43,7 @@ const App = (props) => {
 	if(props.isAuth) {
 		routes = (
 			<Switch>
-				{props.userStatus === 'admin' ? <Route path='/admin' component={AdminProduct} /> : null}
+				{props.userStatus === 'admin' ? <Route path='/admin' component={AdminContainer} /> : null}
 				<Route path='/about' component={AboutUs} />
 				<Route path='/contact' component={Contact} />
 				<Route path='/checkout' render={() => <Checkout userId={props.userId} />} />
