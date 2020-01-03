@@ -23,7 +23,6 @@
 .Products {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 
     &__Pool {
         display: grid;
@@ -32,6 +31,7 @@
     }
 
     &__Pagination {
+        margin-top: auto;
         width: 100%;
     }
 }

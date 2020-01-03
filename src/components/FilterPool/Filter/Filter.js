@@ -13,14 +13,6 @@ const Filter = (props) => {
         setFilterOpen(inputRef.current.checked);
     }
 
-    // let contentClasses = [classes.Filter__Content];
-    // if(filterOpen) {
-    //     contentClasses = [classes.Filter__Content, classes.Filter__Content__Open];
-    // }
-    // else {
-    //     contentClasses = [classes.Filter__Content];
-    // }
-
     return (
         <div className={classes.Filter} >
             <div className={classes.Filter__Heading} onClick={onFilterPoolToggled}>
@@ -29,17 +21,7 @@ const Filter = (props) => {
                 <label htmlFor={`${props.label}-toggle`}>&nbsp;</label>
             </div>
 
-            <FilterContent show={filterOpen} type={props.type} elements={props.elements} />
-
-            {/* <div style={{overflow: 'hidden'}}>
-                <ul className={contentClasses.join(' ')}>
-                    <li>Category 1</li>
-                    <li>Category 2</li>
-                    <li>Category 3</li>
-                    <li>Category 4</li>
-                    <li>Category 5</li>
-                </ul>
-            </div> */}
+            <FilterContent show={filterOpen} type={props.type} elements={props.elements} filterChanged={props.onFilterChanged} sliderReset={props.resetSlider} />
         </div>
     )
 }

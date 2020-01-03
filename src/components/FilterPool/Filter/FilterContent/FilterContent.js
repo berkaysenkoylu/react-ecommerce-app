@@ -18,11 +18,11 @@ const FilterContent = (props) => {
     switch(props.type) {
         case 'checkbox':
             filterContent = props.elements.map(element => {
-                return <FilterItem key={element.name} filterName={element.name} />
+                return <FilterItem key={element.name} filterName={element.name} changed={props.filterChanged} selected={element.selected} />
             });
             break;
         case 'slider':
-            filterContent = <div style={{width: '90%', margin: '0 auto'}}><RangeSlider max={props.elements.max} /></div>
+            filterContent = <div style={{width: '90%', margin: '0 auto'}}><RangeSlider max={props.elements.max} changed={props.filterChanged} reset={props.sliderReset} /></div>
             break;
         default:
             break;

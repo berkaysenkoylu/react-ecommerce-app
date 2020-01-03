@@ -60,7 +60,7 @@ const Order = (props) => {
         <div className={classes.Order}>
             <header className={classes.Order__Header}>
                 <h2>{props._id}</h2>
-                <h2>{props.userId.userMail}</h2>
+                <h2>User: {props.userId.email}</h2>
             </header>
 
             <div className={classes.Order__Content}>

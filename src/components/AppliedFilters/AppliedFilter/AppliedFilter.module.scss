@@ -1,0 +1,19 @@
+@import "../../../variables";
+
+.AppliedFilter {
+
+    &:not(:last-child) {
+        margin-right: 0.5rem;
+    }
+
+    padding: 0.5rem;
+    width: 12rem;
+    font-size: $default-font-size;
+    background-color: $color-gray-light;
+    display: flex;
+    justify-content: space-between;
+
+    &__Button {
+        cursor: pointer;
+    }
+}

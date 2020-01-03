@@ -1,0 +1,14 @@
+.AppliedFilters {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: orangered;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &:empty {
+        padding: 0;
+    }
+}

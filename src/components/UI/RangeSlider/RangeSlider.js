@@ -34,6 +34,21 @@ class RangeSlider extends Component {
         document.removeEventListener('mousemove', this.onMouseMoveHandler);
     }
 
+    componentDidUpdate(prevState, prevProps) {
+        if(this.props.reset) {
+            this.position1 = 0;
+            this.position2 = 100;
+            
+            this.setState({
+                dragStarted: false,
+                isMouseButtonDown: false,
+                pos1: 0,
+                pos2: 100,
+                selectedKnobId: null
+            });
+        }
+    }
+
     getClosestKnob = (mousePos) => {
         let selected = '';
         if(Math.abs(mousePos - this.state.pos1) < Math.abs(mousePos - this.state.pos2)) {
@@ -115,6 +130,9 @@ class RangeSlider extends Component {
             this.position2 = this.findPosition(event);
         }
 
+        // Pass the values of the slider
+        this.props.changed('pricing', 'slider', this.getValues(this.position1, this.position2));
+
         this.setState(oldState => {
             return {
                 dragStarted: !oldState.dragStarted,
@@ -157,6 +175,20 @@ class RangeSlider extends Component {
         return Math.floor(leftPosPercentage);
     }
 
+    getValues = (pos1, pos2) => {
+        const vals = {
+            leftMost: 0,
+            rightMost: 100
+        };
+
+        vals.leftMost = pos1 < pos2 ? pos1 : pos2;
+        vals.rightMost = pos1 > pos2 ? pos1 : pos2;
+
+        vals.leftMost = vals.leftMost * (this.props.max / 100);
+        vals.rightMost = vals.rightMost * (this.props.max / 100);
+
+        return vals;
+    }
     
 
     render() {
