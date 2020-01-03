@@ -76,6 +76,19 @@ const MutateProduct = (props) => {
         showcase: {
             value: false,
             valid: true
+        },
+        category: {
+            elementType: 'select',
+            elementConfig: {
+                options: [
+                    { value: "Miscellaneous", displayValue: "Miscellaneous" },
+                    { value: "Sports", displayValue: "Sports" },
+                    { value: "Clothing", displayValue: "Clothing" },
+                ]
+            },
+
+            value: "Miscellaneous",
+            valid: true
         }
     });
     const [isFormValid, setIsFormValid] = useState(false);
@@ -172,9 +185,11 @@ const MutateProduct = (props) => {
         else {
             copiedFormControl.value = event.target.value;
 
-            let isValid = checkValidity(event.target.value, copiedFormControl.validation);
-            copiedFormControl.valid = isValid;
-            copiedFormControl.touched = true;
+            if(inputName !== 'category') {
+                let isValid = checkValidity(event.target.value, copiedFormControl.validation);
+                copiedFormControl.valid = isValid;
+                copiedFormControl.touched = true;
+            }
 
             copiedFormControls[inputName] = copiedFormControl;
 
@@ -212,6 +227,7 @@ const MutateProduct = (props) => {
                 formData.append('price', formControls.price.value);
                 formData.append('description', formControls.description.value);
                 formData.append('showcase', formControls.showcase.value);
+                formData.append('category', formControls.category.value);
 
                 props.addProduct({ mode: 'edit', formData, id: editedProduct._id });  
             }
@@ -229,6 +245,7 @@ const MutateProduct = (props) => {
                 formData.append('price', formControls.price.value);
                 formData.append('description', formControls.description.value);
                 formData.append('showcase', formControls.showcase.value);
+                formData.append('category', formControls.category.value);
 
                 props.addProduct({ mode: 'edit', formData, id: editedProduct._id });  
             }
@@ -240,6 +257,7 @@ const MutateProduct = (props) => {
             formData.append('price', formControls.price.value);
             formData.append('description', formControls.description.value);
             formData.append('showcase', formControls.showcase.value);
+            formData.append('category', formControls.category.value);
 
             props.addProduct({ mode: 'add', formData });
         }
@@ -295,6 +313,14 @@ const MutateProduct = (props) => {
 
                     <div className={classes.ShowcaseFormField}>
                         <CheckBox checked={formControls.showcase.value} clicked={onCheckboxClickedHandler} /> <span>Is showcase</span>
+                        <div style={{marginLeft: 'auto'}}>
+                            <Input 
+                                elementType={formControls.category.elementType}
+                                elementConfig={formControls.category.elementConfig}
+                                value={formControls.category.value}
+                                changed={(event) => inputChangedHandler(event, 'category')}
+                            />
+                        </div>
                     </div>
 
                     <Input 

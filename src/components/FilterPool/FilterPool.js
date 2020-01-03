@@ -10,15 +10,15 @@ const FilterPool = (props) => {
             type: 'checkbox',
             elements: [
                 {
-                    name: 'Category 1',
+                    name: 'Miscellaneous',
                     selected: false
                 },
                 {
-                    name: 'Category 2',
+                    name: 'Sports',
                     selected: false
                 },
                 {
-                    name: 'Category 3',
+                    name: 'Clothing',
                     selected: false
                 }
             ]

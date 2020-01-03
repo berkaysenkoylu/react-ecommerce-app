@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import classes from './Paginator.module.scss';
 import SelectInput from '../UI/SelectInput/SelectInput';
@@ -10,6 +10,10 @@ const Paginator = (props) => {
     const [itemPerPage, setItemPerPage] = useState(props.itemPerPage[0]);
     const [currentPage, setCurrentPage] = useState(0);
     const [pageCount, setPageCount] = useState(Math.floor((props.maxItemCount / props.itemPerPage[0])) + ((props.maxItemCount % props.itemPerPage[0] === 0) ? 0 : 1));
+
+    useEffect(() => {
+        setPageCount(Math.floor((props.maxItemCount / props.itemPerPage[0])) + ((props.maxItemCount % props.itemPerPage[0] === 0) ? 0 : 1))
+    }, [props.maxItemCount, props.itemPerPage]);
 
     const onValueSelectedHandler = (value) => {
         setItemPerPage(value);

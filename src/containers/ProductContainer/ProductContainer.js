@@ -11,6 +11,10 @@ import Modal from '../../components/Modal/Modal';
 class ProductContainer extends Component {
     state = {
         products: [],
+        productPerPage: 3,
+        pageCount: 0,
+        currentPage: 0,
+        productCount: 0,
         showModal: false,
         selectedProduct: '',
         appliedFilters: [], // { type: 'checkbox', name: 'Category1' }, { type: 'slider', name: 'pricing', values=[] }
@@ -18,9 +22,10 @@ class ProductContainer extends Component {
     }
 
     componentDidMount() {
-        axiosProducts.get('').then(response => {
+        axiosProducts.get(`/?page=${this.state.currentPage + 1}&perPage=${this.state.productPerPage}`).then(response => {
             this.setState({
-                products: response.data.products
+                products: response.data.products,
+                productCount: response.data.count
             });
         });
 
@@ -32,9 +37,28 @@ class ProductContainer extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if(prevState.appliedFilters !== this.state.appliedFilters) {
+        if(prevState.appliedFilters !== this.state.appliedFilters || prevState.productPerPage !== this.state.productPerPage || prevState.currentPage !== this.state.currentPage) {
             // Refetch the product data
-            // console.log("I should refetch")
+            // Setup the query string
+            let queryString = "";
+            queryString = this.state.appliedFilters.map(f => {
+                if(f.type === 'checkbox')
+                    return 'Category=' + f.name;
+                else 
+                    return `Price=${f.values[0]}-${f.values[1]}`;
+            }).join('&');
+
+            if(queryString === '')
+                queryString = queryString.concat(`page=${this.state.currentPage + 1}&perPage=${this.state.productPerPage}`);
+            else
+                queryString = queryString.concat(`&page=${this.state.currentPage + 1}&perPage=${this.state.productPerPage}`);
+
+            axiosProducts.get(`?` + queryString).then(response => {
+                this.setState({
+                    products: response.data.products,
+                    productCount: response.data.count
+                });
+            });
         }
     }
 
@@ -164,7 +188,16 @@ class ProductContainer extends Component {
     }
 
     onPaginationChangeHandler = (paginationObject) => {
-        // console.log(paginationObject);
+        // { perPage: 5, currentPage: 0, pageCount: 1 }
+
+        this.setState(prevState => {
+            return {
+                ...prevState,
+                productPerPage: paginationObject.perPage,
+                currentPage: paginationObject.currentPage,
+                pageCount: paginationObject.pageCount
+            }
+        })
     }
 
     render() {
@@ -198,7 +231,7 @@ class ProductContainer extends Component {
                             {productContainer}
                         </div>
                         <div className={classes.Products__Pagination}>
-                            <Paginator itemPerPage={[3, 5, 10]} maxItemCount={10} pagination={this.onPaginationChangeHandler} />
+                            <Paginator itemPerPage={[3, 5, 10]} maxItemCount={this.state.productCount} pagination={this.onPaginationChangeHandler} />
                         </div>
                     </div>
                 </div>
