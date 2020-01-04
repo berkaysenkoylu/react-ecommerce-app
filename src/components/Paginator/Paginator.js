@@ -49,9 +49,9 @@ const Paginator = (props) => {
                 maxItem={props.maxItemCount} />
 
             <div className={classes.PaginatorButtons}>
-                <PrevButton clicked={onPrevPageHandler} disabled={currentPage === 0} />
+                <PrevButton clicked={onPrevPageHandler} disabled={!props.hasPrevPage} />
                 
-                <NextButton clicked={onNextPageHandler} disabled={currentPage ===  pageCount - 1} />
+                <NextButton clicked={onNextPageHandler} disabled={!props.hasNextPage} />
             </div>
             
         </div>

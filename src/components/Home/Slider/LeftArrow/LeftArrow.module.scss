@@ -5,6 +5,11 @@
     top: 50%;
     left: 2.5rem;
     cursor: pointer;
+
+    @media only screen and (max-width: $bp-small) {
+        top: 40%;
+        left: 1rem;
+    }
 }
 
 .ArrowIcon {

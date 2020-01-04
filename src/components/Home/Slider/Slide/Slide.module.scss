@@ -17,10 +17,18 @@
     font-size: $default-font-size;
     text-align: center;
 
+    @media only screen and (max-width: $bp-small) {
+        top: 40%;
+    }
+
     header {
         font-size: 3rem;
         font-weight: 700;
         color: $color-white;
+
+        @media only screen and (max-width: $bp-xsmall) {
+            font-size: 2rem;
+        }
     }
 
     p {
@@ -28,6 +36,14 @@
         font-size: 2rem;
         font-weight: 600;
         color: $color-white;
+
+        @media only screen and (max-width: $bp-small) {
+            margin-top: 2rem;
+        }
+
+        @media only screen and (max-width: $bp-xsmall) {
+            font-size: $default-font-size;
+        }
     }
 }
 

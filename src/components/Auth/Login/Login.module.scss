@@ -33,10 +33,22 @@
 
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+
+    @media only screen and (max-width: $bp-small) {
+        grid-template-columns: 1fr;
+    }
+
+    @media only screen and (max-width: $bp-xsmall) {
+        width: 90%;
+    }
 }
 
 .SignupRoute {
     position: relative;
+
+    @media only screen and (max-width: $bp-small) {
+        grid-row-start: 2;
+    }
 
     &__Content {
         position: absolute;
@@ -45,6 +57,10 @@
         transform: translate(-50%, -50%);
         font-size: 2.5rem;
         color: $color-tertiary;
+
+        @media only screen and (max-width: $bp-xsmall) {
+            font-size: 2rem;
+        }
 
         a {
             display: inline-block;
@@ -73,6 +89,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @media only screen and (max-width: $bp-small) {
+        grid-row-start: 1;
+    }
 
     &__Form {
         width: 80%;

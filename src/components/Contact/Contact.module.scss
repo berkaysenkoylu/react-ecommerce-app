@@ -34,5 +34,9 @@
         max-width: 60rem;
         margin: 0 auto;
         margin-top: 4rem;
+
+        @media only screen and (max-width: $bp-small) {
+            max-width: 90%;
+        }
     }
 }

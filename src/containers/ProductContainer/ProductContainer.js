@@ -15,6 +15,8 @@ class ProductContainer extends Component {
         pageCount: 0,
         currentPage: 0,
         productCount: 0,
+        hasNextPage: false,
+        hasPrevPage: false,
         showModal: false,
         selectedProduct: '',
         appliedFilters: [], // { type: 'checkbox', name: 'Category1' }, { type: 'slider', name: 'pricing', values=[] }
@@ -25,7 +27,9 @@ class ProductContainer extends Component {
         axiosProducts.get(`/?page=${this.state.currentPage + 1}&perPage=${this.state.productPerPage}`).then(response => {
             this.setState({
                 products: response.data.products,
-                productCount: response.data.count
+                productCount: response.data.count,
+                hasNextPage: response.data.hasNextPage,
+                hasPrevPage: response.data.hasPrevPage
             });
         });
 
@@ -56,7 +60,9 @@ class ProductContainer extends Component {
             axiosProducts.get(`?` + queryString).then(response => {
                 this.setState({
                     products: response.data.products,
-                    productCount: response.data.count
+                    productCount: response.data.count,
+                    hasNextPage: response.data.hasNextPage,
+                    hasPrevPage: response.data.hasPrevPage
                 });
             });
         }
@@ -231,7 +237,13 @@ class ProductContainer extends Component {
                             {productContainer}
                         </div>
                         <div className={classes.Products__Pagination}>
-                            <Paginator itemPerPage={[3, 5, 10]} maxItemCount={this.state.productCount} pagination={this.onPaginationChangeHandler} />
+                            <Paginator 
+                                itemPerPage={[3, 5, 10]}
+                                maxItemCount={this.state.productCount}
+                                pagination={this.onPaginationChangeHandler}
+                                hasNextPage={this.state.hasNextPage}
+                                hasPrevPage={this.state.hasPrevPage}
+                            />  
                         </div>
                     </div>
                 </div>

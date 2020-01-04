@@ -1,6 +1,6 @@
 import React from 'react';
 
-import svg from '../../../assets/images/sprite.svg';
+import svg from '../../../../assets/images/sprite.svg';
 import classes from './ContactElement.module.scss';
 
 const ContactElement = (props) => {

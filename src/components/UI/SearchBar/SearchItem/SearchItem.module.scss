@@ -1,0 +1,31 @@
+.SearchItem {
+    width: 100%;
+    height: 8rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: transparent;
+    transition: all 0.2s ease-out;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #eee;
+    }
+
+    &:not(:last-child) {
+        margin-bottom: 1rem;
+    }
+
+    &__Image {
+        height: 100%;
+    }
+
+    &__Name {
+        margin-left: 1rem;
+    }
+
+    &__Price {
+        margin-right: 1rem;
+        margin-left: auto;
+    }
+}

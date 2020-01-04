@@ -26,6 +26,10 @@
         display: block;
         margin: 0 auto;
         max-width: 60%;
+
+        @media only screen and (max-width: $bp-small) {
+            max-width: 90%;
+        }
     }
 }
 
@@ -33,4 +37,11 @@
     padding: 1rem;
     font-size: $default-font-size;
     margin-top: 4rem;
+
+    p {
+        @media only screen and (max-width: $bp-small) {
+            padding: 1rem;
+        }
+    }
+    
 }
