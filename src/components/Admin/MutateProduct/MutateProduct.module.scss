@@ -5,7 +5,7 @@
     top: 0;
     height: 100vh;
     width: 100%;
-    background-image: linear-gradient(to bottom right, rgba($color-tertiary, 0.4), rgba($color-tertiary-dark-2, 0.4)), url(../../../assets/images/christmas.jpg);
+    background-image: linear-gradient(to bottom right, rgba($color-tertiary, 0.6), rgba($color-tertiary-dark-2, 0.6)), url(../../../assets/images/christmas.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -20,6 +20,7 @@
 
     &__Heading {
         text-align: center;
+        color: $color-white;
         font-size: $default-header-font-size;
     }
 
@@ -27,6 +28,15 @@
         width: 50%;
         margin: 2rem auto 0 auto;
         padding: 2rem;
+
+        @media only screen and (max-width: $bp-medium) {
+            width: 70%;
+        }
+
+        @media only screen and (max-width: $bp-xsmall) {
+            width: 90%;
+        }
+
         // background-color: rgba($color-gray-dark, 0.4);
     }
 }
@@ -82,4 +92,9 @@
     align-items: center;
     font-size: $default-font-size;
     color: $color-white;
+
+    @media only screen and (max-width: $bp-medium) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }

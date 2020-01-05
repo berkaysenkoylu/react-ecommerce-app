@@ -22,7 +22,7 @@ const FilterContent = (props) => {
             });
             break;
         case 'slider':
-            filterContent = <div style={{width: '90%', margin: '0 auto'}}><RangeSlider max={props.elements.max} changed={props.filterChanged} reset={props.sliderReset} /></div>
+            filterContent = <div className={classes.Slider__Wrapper}><RangeSlider max={props.elements.max} changed={props.filterChanged} reset={props.sliderReset} /></div>
             break;
         default:
             break;

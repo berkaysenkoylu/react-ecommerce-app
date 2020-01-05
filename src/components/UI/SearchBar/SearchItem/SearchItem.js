@@ -6,7 +6,7 @@ import classes from './SearchItem.module.scss';
 const SearchItem = (props) => {
 
     return (
-        <Link to={`/products/${props.id}`} style={{textDecoration: 'none', color: '#000'}}>
+        <Link to={`/products/${props._id}`} className={classes.SearchItemLink} onClick={props.clicked}>
             <div className={classes.SearchItem}>
                 <img src={props.imageUrl} alt={props.name} className={classes.SearchItem__Image} />
 

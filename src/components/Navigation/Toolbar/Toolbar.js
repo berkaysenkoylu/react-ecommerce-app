@@ -101,7 +101,7 @@ class Toolbar extends Component {
                     
                     <div className={classes.TopNav__Middle} style={this.props.hideNavbar ? {display: 'none'} : null}>
                         <Logo />
-                        <div className={classes.TopNav__Middle__Form}>
+                        <div className={classes.TopNav__Middle__Form} ref={this.wrapperRef}>
                             <SearchBar />
                         </div>
                     </div>

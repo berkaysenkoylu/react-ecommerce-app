@@ -34,7 +34,9 @@ const Orders = (props) => {
         axiosOrder.get('/' + id + '/invoice', config).then(response => {
             // console.log(response.data.url);
             let win = window.open(response.data.url, '_blank');
-            win.focus();
+            if(win !== null) {
+                win.focus();
+            }
         });
     }
     

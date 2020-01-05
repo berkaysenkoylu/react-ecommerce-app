@@ -14,6 +14,10 @@
     box-shadow: 0 0 1rem rgba($color-black, 0.3);
     border-radius: 3px;
 
+    @media only screen and (max-width: $bp-small) {
+        width: 90%;
+    }
+
     &__Header {
         padding-bottom: 0.5rem;
         border-bottom: 1px solid rgba($color-black, 0.2);
@@ -21,19 +25,27 @@
         display: flex;
         justify-content: space-between;
 
+        @media only screen and (max-width: $bp-xsmall) {
+            justify-content: unset;
+            flex-direction: column;
+        }
+
         h2{
             font-size: 2rem;
             font-weight: 600;
+
+            &:last-child {
+                @media only screen and (max-width: $bp-xsmall) {
+                    margin-top: 1rem;
+                }
+            }
         }
-        
-       
     }
 
     &__Content {
         display: flex;
         flex-direction: column;
         margin-top: 0;
-        height: 9rem;
         padding: 1rem 0;
     }
 

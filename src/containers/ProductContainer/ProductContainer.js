@@ -96,6 +96,10 @@ class ProductContainer extends Component {
         });
     }
 
+    onAllFiltersReseted = () => {
+        // TODO
+    }
+
     onAppliedFilterClosedHandler = (name, type) => {
         let resetFilter = {
             name, type
@@ -227,9 +231,11 @@ class ProductContainer extends Component {
                 <div className={classes.ProductContainer}>
                     <div className={classes.ProductFilter}>
                         <FilterPool 
-                            resetFilter={this.state.filterToReset} 
-                            selectedFilters={this.onSelectedFilters} 
-                            filterReseted={this.onFilterResetedHandler} />
+                            resetFilter={this.state.filterToReset}
+                            selectedFilters={this.onSelectedFilters}
+                            filterReseted={this.onFilterResetedHandler}
+                            resetAllFilters={this.onAllFiltersReseted}
+                        />
                     </div>
                     <div className={classes.Products}>
                         <AppliedFilters filters={this.state.appliedFilters} appliedFilterClosed={this.onAppliedFilterClosedHandler} />

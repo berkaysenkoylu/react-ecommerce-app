@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import axiosProducts from '../../../axios-products';
 import svg from '../../../assets/images/sprite.svg';
 
 import classes from './SearchBar.module.scss';
@@ -6,50 +7,76 @@ import SearchItem from './SearchItem/SearchItem';
 
 const SearchBar = (props) => {
     const [searchValue, setSearchValue] = useState("");
-    const [searchResults, setSearchResults] = useState([
-        {
-            id: "87jh23j123987akjdk213n",
-            name: "Einstein",
-            imageUrl: require('../../../assets/images/hard.jpg'),
-            price: 12.99
-        },
-        {
-            id: "87jh23j123987akasdsad",
-            name: "Schrodinger",
-            imageUrl: require('../../../assets/images/school.jpg'),
-            price: 19.99
+    const [showSearchResults, setShowSearchResults] = useState(false);
+    const [searchResults, setSearchResults] = useState([]);
+
+    let searchWrapper = useRef(null);
+
+    const onEscKeyDown = (event) => {
+        if(event.keyCode === 27) {
+            if(showSearchResults) {
+                setShowSearchResults(showSearchResults => false);
+            }
         }
-    ]);
+    }
+
+    const onClickOutside = (event) => {
+        if((searchWrapper.current && !searchWrapper.current.contains(event.target)) && showSearchResults) {
+            setShowSearchResults(showSearchResults => false);
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener('keydown', onEscKeyDown);
+        window.addEventListener('mousedown', onClickOutside);
+        return () => {
+            window.removeEventListener('keydown', onEscKeyDown);
+            window.removeEventListener('mousedown', onClickOutside);
+        }
+    });
 
     const onInputChanged = (event) => {
         event.preventDefault();
         let inp = event.target.value;
         setSearchValue(inp);
+        setShowSearchResults(showSearchResults => inp.length > 0);
 
-        let copiedResults = [...searchResults];
-
-        copiedResults = copiedResults.filter(item => {
-            if(item.name.toLowerCase().includes(inp.toLowerCase())) {
-                return item;
-            }
-            else {
-                return null;
-            }
+        axiosProducts.get(`/search?incl=${event.target.value}`).then(response => {
+            setSearchResults(searchResults => response.data.products);
         });
+    }
 
-        // setSearchResults(searchResults => searchResults.filter(item => item.name.includes(inp) ? item : null));
+    const onSearchSubmitHandler = (event) => {
+        event.preventDefault();
+    }
+
+    const onSearchResultClickedHandler = () => {
+        setShowSearchResults(showSearchResults => false);
+        setSearchValue("");
+        setSearchResults([]);
     }
 
     let searchResultClassList = [classes.SearchResults];
-    if(searchValue === "") {
+    if(!showSearchResults) {
         searchResultClassList = [classes.SearchResults];
     } else {
         searchResultClassList = [classes.SearchResults, classes.SearchResults__Shown];
     }
 
+    let searchContent = <p>No such product was found!</p>;
+    if(searchResults.length > 0) {
+        searchContent = searchResults.map(item => {
+            return <SearchItem 
+                key={item._id}
+                {...item}
+                clicked={onSearchResultClickedHandler}
+            />;
+        });
+    }
+
     return (
-        <div className={classes.SearchBarWrapper}>
-            <form className={classes.SearchBar}>
+        <div className={classes.SearchBarWrapper} ref={searchWrapper}>
+            <form className={classes.SearchBar} onSubmit={onSearchSubmitHandler}>
                 <input 
                     type="text"
                     placeholder="What are you looking for?"
@@ -66,9 +93,7 @@ const SearchBar = (props) => {
             </form>
 
             <div className={searchResultClassList.join(' ')}>
-                {searchResults.map(item => {
-                    return <SearchItem key={item.id} name={item.name} imageUrl={item.imageUrl} price={item.price} />
-                })}
+                {searchContent}
             </div>
         </div>
     )

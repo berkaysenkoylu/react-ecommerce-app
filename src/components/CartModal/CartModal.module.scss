@@ -24,6 +24,10 @@
     background-color: $color-white;
     box-shadow: 0.5rem 1rem 1rem rgba($color-black, 0.2);
     padding: 1rem 1.5rem;
+
+    @media only screen and (max-width: $bp-small) {
+        width: 90%
+    }
 }
 
 .ViewCartButton,

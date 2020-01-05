@@ -13,6 +13,10 @@
     flex-direction: column;
     box-shadow: 0 0 1rem rgba($color-black, 0.3);
     border-radius: 3px;
+    
+    @media only screen and (max-width: $bp-small) {
+        width: 90%;
+    }
 
     &__Content {
         display: flex;

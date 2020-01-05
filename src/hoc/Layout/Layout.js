@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import BigMenu from '../../components/BigMenu/BigMenu';
+import Footer from '../../components/Footer/Footer';
 
 const Layout = (props) => {
     const [openMenu, setOpenMenu] = useState(false);
@@ -21,7 +22,7 @@ const Layout = (props) => {
                 {props.children}
             </main>
 
-            {/* FOOTER */}
+            <Footer />
         </Fragment>
     )
 }

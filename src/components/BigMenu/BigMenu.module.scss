@@ -23,9 +23,18 @@
     transform: translate(-50%, -50%);
     list-style: none;
 
+    @media only screen and (max-width: $bp-xsmall) {
+        width: 30rem;
+        margin: 0 auto;
+    }
+
     li {
         font-size: 5rem;
         transition: all 0.2s ease-out;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 3.5rem;
+        }
 
         &:hover {
             transform: translateX(2rem);

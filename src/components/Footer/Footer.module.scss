@@ -1,0 +1,128 @@
+@import "../../variables";
+
+.Footer {
+    background-color: $color-tertiary;
+    padding: 1rem;
+}
+
+.LinkContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(49rem, 1fr));
+
+    @media only screen and (max-width: $bp-xsmall) {
+        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    }
+}
+
+.NavLinks {
+    padding: 2rem;
+    font-size: $default-font-size;
+
+    &__Container {
+        list-style: none;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin-top: 3rem;
+
+        @media only screen and (max-width: $bp-medium) {
+            margin-top: 0;
+        }
+
+        @media only screen and (max-width: $bp-xsmall) {
+            flex-direction: column;
+        }
+    }
+
+    &__Link {
+        &:not(:last-child) {
+            margin-right: 1rem;
+
+            @media only screen and (max-width: $bp-xsmall) {
+                margin-right: 0rem;
+                margin-bottom: 1rem;
+            }
+        }
+
+        display: inline-block;
+        padding: 1rem 2rem;
+        font-weight: 600;
+        color: $color-white;
+        cursor: pointer;
+        transition: all 0.3s ease-out;
+
+        &:hover {
+            background-color: $color-tertiary-dark-2;
+            box-shadow: 0rem 1rem 1rem rgba($color-black, 0.3);
+        }
+    }
+}
+
+.SocialMediaLinks {
+    padding: 1rem;
+    text-align: center;
+
+    @media only screen and (max-width: $bp-medium) {
+        margin-bottom: 1rem;
+    }
+
+    &__Header {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    &__Container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+    }
+}
+
+.SocialMediaLink {
+    background-color: $color-tertiary-dark-2;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+
+    &:not(:last-child) {
+        margin-right: 1rem;
+    }
+
+    &__Icon {
+        width: 3rem;
+        height: 3rem;
+        fill: $color-white;
+        transition: all 0.3s ease-out;
+    }
+
+    &:hover {
+        background-color: $color-white;
+    }
+
+    &:hover &__Icon {
+        fill: $color-tertiary-dark-2;
+    }
+}
+
+.Copyright {
+    color: $color-tertiary-dark-2;
+    font-weight: 600;
+    font-size: $default-font-size;
+    text-align: center;
+    padding: 1rem;
+    padding-bottom: 0;
+    border-top: 1px solid rgba($color-black, 0.3);
+
+    &__Text {
+        display: inline-block;
+    }
+}

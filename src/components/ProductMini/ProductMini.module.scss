@@ -23,6 +23,10 @@
         opacity: 0;
         transition: all 0.2s ease-out;
         cursor: pointer;
+
+        @media only screen and (max-width: $bp-small) {
+            display: none;
+        }
     }
 
     &__Icon {

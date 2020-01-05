@@ -9,6 +9,13 @@
     align-items: center;
     justify-content: space-between;
     padding: 2rem 10rem;
+
+    @media only screen and (max-width: $bp-medium) {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(16rem, 20rem));
+        grid-gap: 1rem;
+        padding: 2rem 7rem;
+    }
 }
 
 .FinalLink {

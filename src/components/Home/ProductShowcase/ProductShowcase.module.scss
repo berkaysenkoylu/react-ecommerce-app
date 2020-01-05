@@ -1,11 +1,15 @@
 @import "../../../variables";
 
 .ProductShowcase {
-    height: 50rem;
+    // height: 50rem;
     position: relative;
     display: flex;
     flex-direction: column;
     margin: 4rem 0;
+
+    @media only screen and (max-width: $bp-xsmall) {
+        display: none;
+    }
 }
 
 .ProductShowcaseHeader {

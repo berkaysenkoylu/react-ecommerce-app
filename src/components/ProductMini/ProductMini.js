@@ -5,6 +5,7 @@ import classes from './ProductMini.module.scss';
 
 const ProductMini = (props) => {
     const onOpenModalHandler = () => {
+        // The window width can also be checked here
         props.openModal(props._id);
     }
 

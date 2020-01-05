@@ -4,6 +4,10 @@
     max-width: 140rem;
     margin: 15rem auto 0 auto ;
     height: calc(100vh - 15rem); // may remove
+
+    @media only screen and (max-width: $bp-small) {
+        margin: 10rem auto 0 auto ;
+    }
 }
 
 .ProductView {
@@ -43,5 +47,11 @@
 
     &__Quantity {
         font-size: $default-font-size;
+    }
+
+    &__Form {
+        @media only screen and (max-width: $bp-small) {
+            margin-bottom: 2rem;
+        }
     }
 }

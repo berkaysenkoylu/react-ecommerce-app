@@ -150,6 +150,8 @@ const FilterPool = (props) => {
     const resetFilterHandler = () => {
         // RESET THE FILTERS
         console.log("Reset the filters");
+        //props.resetAllFilters();
+        // TODO
     }
 
     let filterContent = Object.keys(filters).map(filter => {

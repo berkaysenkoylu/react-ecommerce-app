@@ -1,3 +1,4 @@
+@import "../../../../variables";
 
 .FilterContent__Wrapper {
     overflow: hidden;
@@ -16,4 +17,13 @@
 .FilterContent__Open {
     height: 15rem;
     // transform: scaleY(1);
+}
+
+.Slider__Wrapper {
+    width: 90%; 
+    margin: 0 auto;
+
+    @media only screen and (max-width: $bp-large) {
+        width: 80%;
+    }
 }

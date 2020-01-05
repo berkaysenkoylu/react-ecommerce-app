@@ -5,15 +5,20 @@
     margin: 15rem auto 0 auto ;
     min-height: calc(100vh - 15rem); // may remove
 
-    @media only screen and (max-width: $bp-small) {
-        margin: 1rem auto 1rem auto ;
-        min-height: calc(100vh - 8rem); // may remove
-    }
-
     padding: 1rem 2rem;
     display: grid;
     grid-template-columns: 30% 67%;
     grid-gap: 3%;
+
+    @media only screen and (max-width: $bp-small) {
+        grid-template-columns: unset;
+        grid-template-rows: 30% 67%;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        margin: 1rem auto 1rem auto ;
+        min-height: calc(100vh - 8rem); // may remove
+    }
 }
 
 .ProductFilter {

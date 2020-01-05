@@ -1,7 +1,13 @@
+@import "../../../variables";
+
 .OrderList {
     max-width: 140rem;
     margin: 15rem auto 0 auto;
     min-height: calc(100vh - 15rem);
+
+    @media only screen and (max-width: $bp-small) {
+        margin: 10rem auto 0 auto;
+    }
 
     &__Header {
         text-align: center;
