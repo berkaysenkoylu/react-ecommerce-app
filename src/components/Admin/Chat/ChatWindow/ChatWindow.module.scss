@@ -1,0 +1,25 @@
+@import "../../../../variables";
+
+.ChatWindow {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h2 {
+        text-align: center;
+        font-size: 2rem;
+    }
+}
+
+.ChatMessagesWrapper {
+    margin-top: auto;
+    width: 100%;
+    height: 90%;
+    font-size: $default-font-size;
+    overflow-y: auto;
+}
+
+.ChatMessages {
+
+}

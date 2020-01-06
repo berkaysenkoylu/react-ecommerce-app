@@ -61,9 +61,10 @@ export const authCheckState = () => {
                 const userId = localStorage.getItem('userId');
 
                 const response = await axiosAuth.get(`/${userId}`);
-                const status = response.data.status;
+                const status = response.data.user.status;
+                const username = response.data.user.name;
 
-                dispatch(loginSuccess(token, userId, status));
+                dispatch(loginSuccess(token, userId, username, status));
                 dispatch(authTimeout((expirationDate.getTime() - new Date().getTime()) / 1000));
             } else {
                 dispatch(logout());
@@ -78,11 +79,12 @@ export const loginStart = () => {
     };
 }
 
-export const loginSuccess = (token, userId, status) => {
+export const loginSuccess = (token, userId, username, status) => {
     return {
         type: actionTypes.LOGIN_SUCCESS,
         token: token,
         userId: userId,
+        username: username,
         path: '/',
         status: status
     };
@@ -106,7 +108,7 @@ export const login = (userData) => {
             localStorage.setItem("token", response.data.token);
             localStorage.setItem("expirationTime", expirationTime);
 
-            dispatch(loginSuccess(response.data.token, response.data.userId, response.data.status));
+            dispatch(loginSuccess(response.data.token, response.data.userId, response.data.username, response.data.status));
             dispatch(authTimeout(+response.data.expiresIn));
         }).catch(error => {
             dispatch(loginFail(error.response.data.message));

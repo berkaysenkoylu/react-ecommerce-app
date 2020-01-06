@@ -11,6 +11,8 @@ const NavigationAdmin = (props) => {
             </span>
 
             <ul className={classes.NavigationAdmin__List}>
+                <NavigationItem exact to="/admin/messages">Messages</NavigationItem>
+
                 <NavigationItem exact to="/admin/products">Products</NavigationItem>
 
                 <NavigationItem exact to="/admin/add-product">Add Product</NavigationItem>

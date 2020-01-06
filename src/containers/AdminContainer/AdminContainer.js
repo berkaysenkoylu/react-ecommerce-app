@@ -6,6 +6,7 @@ import axiosOrder from '../../axios-order';
 import ProductList from '../../components/Admin/Products/ProductList';
 import MutateProduct from '../../components/Admin/MutateProduct/MutateProduct';
 import OrderList from '../../components/Admin/Orders/OrderList';
+import Chat from '../../components/Admin/Chat/Chat';
 
 class AdminContainer extends Component {
     state = {
@@ -151,6 +152,7 @@ class AdminContainer extends Component {
     render() {
         return (
             <Switch>
+                <Route path={this.props.match.url + "/messages"} render={() => <Chat />} />
                 <Route path={this.props.match.url + "/orders"} render={() => <OrderList list={this.state.orders} editOrder={this.onOrderEdited} orderDeleted={this.onOrderDeletedHandler} />} />
                 <Route path={this.props.match.url + "/products"} render={() => <ProductList list={this.state.products} editProduct={this.onEditProduct} deleteProduct={this.onDeleteProduct} />} />
                 <Route path={this.props.match.url + "/add-product"} render={() => <MutateProduct {...this.props} addProduct={this.onAddProductHandler} editProduct={this.onAddProductHandler} loading={this.state.loading} productList={this.state.products} />} />

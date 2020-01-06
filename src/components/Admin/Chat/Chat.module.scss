@@ -1,0 +1,40 @@
+.Chat {
+    max-width: 140rem;
+    margin: 15rem auto 0 auto;
+    height: calc(100vh - 15rem);
+
+    &__Header {
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+        }
+    }
+}
+
+.Chat__Window {
+    width: 70%;
+    margin: 0 auto;
+    height: 50rem;
+    display: flex;
+}
+
+.Chat__Users {
+    width: 20%;
+    background-color: orangered;
+}
+
+.Chat__Messages {
+    width: 80%;
+    background-color: yellow;
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Chat__Messages__Wrapper {
+    height: 90%;
+    width: 100%;
+    margin-bottom: auto;
+}
