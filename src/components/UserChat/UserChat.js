@@ -19,14 +19,14 @@ class UserChat extends Component {
             unreadMessageCount: 0
         }
 
-        this.socket = io('https://sleepy-reaches-13632.herokuapp.com/', {
+        this.socket = io('https://whispering-ridge-68679.herokuapp.com/', {
             query: `username=${props.username}&userId=${props.userId}`
         });
     }
 
     componentDidMount() {
 
-        axios.get('https://sleepy-reaches-13632.herokuapp.com/api/chat').then(response => {
+        axios.get('https://whispering-ridge-68679.herokuapp.com/api/chat').then(response => {
             if(response.data.users.find(user => user.userId === 'admin')) {
                 this.setState({
                     adminOnline: true

@@ -18,13 +18,13 @@ class Chat extends Component {
             unseenMessageCount: {} // "<UserSocket>": 23, "<UserSocket>": 11, etc...
         };
 
-        this.socket = openSocket('https://sleepy-reaches-13632.herokuapp.com/', {
+        this.socket = openSocket('https://whispering-ridge-68679.herokuapp.com/', {
             query: 'username=admin&userId=admin'
         });
     }
 
     componentDidMount() {
-        axios.get('https://sleepy-reaches-13632.herokuapp.com/api/chat').then(response => {
+        axios.get('https://whispering-ridge-68679.herokuapp.com/api/chat').then(response => {
             this.setState({
                 usersInRoom: response.data.users
             });
