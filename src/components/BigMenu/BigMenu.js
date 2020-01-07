@@ -37,6 +37,7 @@ const BigMenu = (props) => {
                 {props.userStatus !== 'admin' ? <NavigationItem exact to="/orders">My Orders</NavigationItem> : null}
                 <NavigationItem exact to="/contact">Contact</NavigationItem>
                 <NavigationItem exact to="/about">About us</NavigationItem>
+                {props.userStatus === 'admin' ? <NavigationItem exact to="/admin/messages">Messages</NavigationItem> : null}
                 {props.userStatus === 'admin' ? <NavigationItem exact to="/admin/products">Products</NavigationItem> : null}
                 {props.userStatus === 'admin' ? <NavigationItem exact to="/admin/add-product">Add Product</NavigationItem> : null}
                 {props.userStatus === 'admin' ? <NavigationItem exact to="/admin/orders">Admin Orders</NavigationItem> : null}

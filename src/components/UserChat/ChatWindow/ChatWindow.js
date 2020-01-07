@@ -20,17 +20,22 @@ const ChatWindow = (props) => {
 
     return (
         <div className={classes.ChatWindow}>
-            <div className={classes.ChatWindow__Messages}>
+            {props.adminOnline ? 
+                <>
+                    <div className={classes.ChatWindow__Messages}>
+                        {props.messages.length > 0 ? props.messages.map((message, i) => {
+                            return <p key={i}><strong>{message.from === 'admin' ? message.from : props.username}:</strong> {message.message}</p>
+                        }) : null}
+                    </div>
 
-            </div>
-
-            <input 
-                type="text"
-                className={classes.ChatWindow__Input}
-                onKeyPress={(event) => onEnterButtonPressed(event)}
-                onChange={(event) => onInputChange(event)}
-                value={inputValue}
-            />
+                    <input 
+                        type="text"
+                        className={classes.ChatWindow__Input}
+                        onKeyPress={(event) => onEnterButtonPressed(event)}
+                        onChange={(event) => onInputChange(event)}
+                        value={inputValue}
+                    />
+                </> : <p className={classes.AdminOffline}>Admin is currently offline!</p>}
         </div>
     )
 }

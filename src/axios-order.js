@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-    baseURL: 'http://localhost:8000/api/order'
+    baseURL: 'https://sleepy-reaches-13632.herokuapp.com/api/order'
 });
 
 export default instance;

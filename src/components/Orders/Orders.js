@@ -55,6 +55,9 @@ const Orders = (props) => {
                     requestInvoice={onRequestInvoice}/>
             });
         }
+        else {
+            orderContent = <p className={classes.NoOrder}>You don't have any orders yet.</p>
+        }
     }
     else {
         orderContent = <Spinner strokeWidth={4} />;

@@ -15,6 +15,7 @@ const User = (props) => {
     return (
         <span className={classList.join(' ')} onClick={props.clicked}>
             {props.username}
+            {(props.unseen > 0) ? <span className={classes.Unseen}>{props.unseen}</span> : null}
         </span>
     )
 }

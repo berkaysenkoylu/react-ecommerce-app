@@ -1,3 +1,5 @@
+@import "../../../variables";
+
 .Chat {
     max-width: 140rem;
     margin: 15rem auto 0 auto;
@@ -8,6 +10,7 @@
             text-align: center;
             font-size: 2.5rem;
         }
+        margin-bottom: 1.5rem;
     }
 }
 
@@ -16,17 +19,27 @@
     margin: 0 auto;
     height: 50rem;
     display: flex;
+    border: 1px solid rgba($color-black, 0.25);
+    box-shadow: 0rem 1.6rem 0.7rem -1rem rgba($color-black, 0.75);
 }
 
 .Chat__Users {
     width: 20%;
-    background-color: orangered;
+    background-color: $color-gray-light;
+    border-right: 1px solid rgba($color-black, 0.25);
+
+    @media only screen and (max-width: $bp-small) {
+        width: 30%;
+    }
 }
 
 .Chat__Messages {
     width: 80%;
-    background-color: yellow;
     padding: 1rem;
+
+    @media only screen and (max-width: $bp-small) {
+        width: 70%;
+    }
 
     display: flex;
     flex-direction: column;

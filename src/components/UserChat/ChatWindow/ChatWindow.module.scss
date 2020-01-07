@@ -29,7 +29,14 @@
     }
 
     &__Messages {
-        background-color: #ccc;
+        font-size: $default-font-size;
+        overflow-y: auto;
+
+        p {
+            &:not(:last-child) {
+                margin-bottom: 5px;
+            }
+        }
     }
 
     &__Input {
@@ -40,4 +47,10 @@
             border-color: $color-tertiary;
         }
     }
+}
+
+.AdminOffline {
+    font-size: $default-font-size;
+    align-self: center;
+    justify-self: center;
 }
