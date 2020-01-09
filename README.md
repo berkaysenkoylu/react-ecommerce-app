@@ -22,6 +22,8 @@ No additional css libraries were used.
 
 Note: Since the backend of this app is on heroku (free dyno) and apps tend to go to sleep if they have no traffic in the last 1 hour; your first http request can take 10secs.
 
+Note 2: Since React's BrowserRouter doesn't work on github pages, I had to use HashRouter. It results in ugly urls, but it works.
+
 <hr>
 
 <h2 align="center">Features with images</h2>
