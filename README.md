@@ -9,14 +9,14 @@ E-commerce app: [smolRooms](https://berkaysenkoylu.github.io/react-ecommerce-app
 - Payment api: iyzipay-node
 
 TEST USER:
-email: test@test.com
-password: 123123
+- email: test@test.com
+- password: 123123
 
 TEST CREDIT CARD
-cardHolderName: John Doe
-cardNumber: 5528790000000008
-expirationDate: 12/2030
-cvc: 123
+- cardHolderName: John Doe
+- cardNumber: 5528790000000008
+- expirationDate: 12/2030
+- cvc: 123
 
 No additional css libraries were used.
 
