@@ -26,10 +26,6 @@ const Home = (props) => {
             <MosaicPromo />
 
             <ProductShowcase showcaseProducts={showcaseProducts} />
-
-            <div>
-                MORE...
-            </div>
         </div>
     )
 }

@@ -7,32 +7,32 @@ const MosaicPromo = (props) => {
     let promos = [
         {
             promoTitle: "Christmas Sale",
-            promoText: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse ipsam distinctio incidunt quos repellat voluptate minus laborum qui sunt libero.",
-            promoButton: "Shop Now",
+            promoText: "We are in that time of the year again! Explore what we offer!",
+            promoButton: "Discover",
             promoImage: "christmas.jpg"
         },
         {
             promoTitle: "Back to School Sale",
-            promoText: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse ipsam distinctio incidunt quos repellat voluptate minus laborum qui sunt libero.",
-            promoButton: "Read More",
+            promoText: "Discover our big school sale!",
+            promoButton: "Explore",
             promoImage: "school.jpg"
         },
         {
             promoTitle: "Minimalism",
-            promoText: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse ipsam distinctio.",
+            promoText: "Read more about this new trend, and see related products.",
             promoButton: "Shop Gifts",
             promoImage: "minimalism.jpg"
         },
         {
             promoTitle: "Simple Living",
-            promoText: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse ipsam distinctio.",
-            promoButton: "Simple Info",
+            promoText: "Simplicity's strength is not to be underestimated!",
+            promoButton: "Simple",
             promoImage: "simple.jpg"
         },
         {
             promoTitle: "Play Hardcore",
-            promoText: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse ipsam distinctio.",
-            promoButton: "Hard Info",
+            promoText: "Products for hardcore people.",
+            promoButton: "Hard",
             promoImage: "hard.jpg"
         }
     ];

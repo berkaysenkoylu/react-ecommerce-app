@@ -2,7 +2,7 @@
 
 .AboutUs {
     max-width: 140rem;
-    margin: 15rem auto 0 auto ;
+    margin: 15rem auto 2rem auto ;
     min-height: calc(100vh - 15rem); // may remove
 
     @media only screen and (max-width: $bp-small) {

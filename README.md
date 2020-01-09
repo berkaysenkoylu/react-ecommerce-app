@@ -3,9 +3,20 @@ E-commerce app: [smolRooms](https://berkaysenkoylu.github.io/react-ecommerce-app
 - Backend: Node.js (deployed on heroku (free dyno))
 - Database: MongoDB
 - Frontend: React
+- Redux for auth state management
 - CSS Preprocessor: Sass
 - Image Upload (Google Cloud)
 - Payment api: iyzipay-node
+
+TEST USER:
+email: test@test.com
+password: 123123
+
+TEST CREDIT CARD
+cardHolderName: John Doe
+cardNumber: 5528790000000008
+expirationDate: 12/2030
+cvc: 123
 
 No additional css libraries were used.
 

@@ -1,9 +1,9 @@
 @import "../../../variables";
 
 .SignupWrapper {
-    margin: 20rem 0 0 0;
+    margin: 20rem 0 2rem 0;
     width: 100vw; // may remove
-    height: calc(100vh - 20rem); // may remove
+    min-height: calc(100vh - 20rem); // may remove
 }
 
 .SignupBackground {

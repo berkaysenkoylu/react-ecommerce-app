@@ -10,22 +10,22 @@ const Slider = (props) => {
         {
             slideHeader: 'Christmas Sale is upon us!',
             slideContent: 'Don\'t miss out opportunities like up to 75% discounts!',
-            slideButtonLeft: 'Buy now',
-            slideButtonRight: 'SBR',
+            slideButtonLeft: 'Buy',
+            slideButtonRight: 'Explore',
             slideBackgroundImage: 'slide1.jpg'
         },
         {
-            slideHeader: 'Slide 2',
-            slideContent: 'Slide 2 content will be here',
-            slideButtonLeft: 'Buy now',
-            slideButtonRight: 'SBR',
+            slideHeader: 'Winter Sale',
+            slideContent: 'One of the most exciting time of the year has arrived!',
+            slideButtonLeft: 'Discover',
+            slideButtonRight: 'Shop',
             slideBackgroundImage: 'slide2.jpg'
         },
         {
-            slideHeader: 'Slide 3',
-            slideContent: 'Slide 3 content will be here',
-            slideButtonLeft: 'Buy now',
-            slideButtonRight: 'SBR',
+            slideHeader: 'Literacy Sale',
+            slideContent: 'Explore new universes within the comfort of your home!',
+            slideButtonLeft: 'Read',
+            slideButtonRight: 'Improve',
             slideBackgroundImage: 'slide3.jpg'
         }
     ]);
