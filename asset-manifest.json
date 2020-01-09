@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/react-ecommerce-app/static/css/main.a9207f28.chunk.css",
-    "main.js": "/react-ecommerce-app/static/js/main.c67c67ba.chunk.js",
-    "main.js.map": "/react-ecommerce-app/static/js/main.c67c67ba.chunk.js.map",
+    "main.css": "/react-ecommerce-app/static/css/main.0efb8843.chunk.css",
+    "main.js": "/react-ecommerce-app/static/js/main.bc25a090.chunk.js",
+    "main.js.map": "/react-ecommerce-app/static/js/main.bc25a090.chunk.js.map",
     "runtime-main.js": "/react-ecommerce-app/static/js/runtime-main.0207f515.js",
     "runtime-main.js.map": "/react-ecommerce-app/static/js/runtime-main.0207f515.js.map",
-    "static/js/2.3b991327.chunk.js": "/react-ecommerce-app/static/js/2.3b991327.chunk.js",
-    "static/js/2.3b991327.chunk.js.map": "/react-ecommerce-app/static/js/2.3b991327.chunk.js.map",
+    "static/js/2.7a3f239f.chunk.js": "/react-ecommerce-app/static/js/2.7a3f239f.chunk.js",
+    "static/js/2.7a3f239f.chunk.js.map": "/react-ecommerce-app/static/js/2.7a3f239f.chunk.js.map",
     "index.html": "/react-ecommerce-app/index.html",
-    "precache-manifest.2e8d002e22856979d0a98318017b17b1.js": "/react-ecommerce-app/precache-manifest.2e8d002e22856979d0a98318017b17b1.js",
+    "precache-manifest.5e1e09f00a18c304b40dc13934f7c3d9.js": "/react-ecommerce-app/precache-manifest.5e1e09f00a18c304b40dc13934f7c3d9.js",
     "service-worker.js": "/react-ecommerce-app/service-worker.js",
-    "static/css/main.a9207f28.chunk.css.map": "/react-ecommerce-app/static/css/main.a9207f28.chunk.css.map",
-    "static/js/2.3b991327.chunk.js.LICENSE": "/react-ecommerce-app/static/js/2.3b991327.chunk.js.LICENSE",
+    "static/css/main.0efb8843.chunk.css.map": "/react-ecommerce-app/static/css/main.0efb8843.chunk.css.map",
+    "static/js/2.7a3f239f.chunk.js.LICENSE": "/react-ecommerce-app/static/js/2.7a3f239f.chunk.js.LICENSE",
     "static/media/about_us.jpg": "/react-ecommerce-app/static/media/about_us.82a66ccb.jpg",
     "static/media/chat.svg": "/react-ecommerce-app/static/media/chat.7e246b49.svg",
     "static/media/checkmark.svg": "/react-ecommerce-app/static/media/checkmark.15e52ab9.svg",
@@ -44,8 +44,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.0207f515.js",
-    "static/js/2.3b991327.chunk.js",
-    "static/css/main.a9207f28.chunk.css",
-    "static/js/main.c67c67ba.chunk.js"
+    "static/js/2.7a3f239f.chunk.js",
+    "static/css/main.0efb8843.chunk.css",
+    "static/js/main.bc25a090.chunk.js"
   ]
 }
