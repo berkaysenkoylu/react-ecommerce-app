@@ -14,8 +14,8 @@
 
 .Checkout {
     max-width: 140rem;
-    margin: 15rem auto 0 auto ;
-    height: calc(100vh - 15rem); // may remove
+    margin: 15rem auto 2rem auto ;
+    min-height: calc(100vh - 15rem); // may remove
     padding: 0 2rem;
 
     display: flex;
