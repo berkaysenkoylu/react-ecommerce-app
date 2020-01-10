@@ -15,7 +15,7 @@ const Product = (props) => {
             <div className={classes.Product__Image} style={imageStyle}>
             </div>
             <div className={classes.Product__Price}>
-                <p>{props.price} $</p> <span className={classes.Product__OldPrice}>12.99 $</span>
+                <p>{props.price} $</p> <span className={classes.Product__OldPrice}>{(props.price + props.price * 0.15).toFixed(2)} $</span>
             </div>
             <div className={classes.Product__Info}>
                 <h2>{props.name}</h2>
